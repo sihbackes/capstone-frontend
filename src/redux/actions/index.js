@@ -1,4 +1,6 @@
 export const GET_DATA = "GET_DATA";
+export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES"
+export const REMOVE_FROM_FAVORITES = "REMOVE_FROM_FAVORITES";
 
 export const getDataAction = (query)=> {
   return async (dispatch)=> {
@@ -20,3 +22,15 @@ export const getDataAction = (query)=> {
   }
 }
 
+
+export const addToFavoritesAction = (pic) => {
+  return {
+    type: ADD_TO_FAVORITES,
+    payload: pic,
+  };
+};
+
+export const removeFromFavoritesAction = (i) => ({
+  type: REMOVE_FROM_FAVORITES,
+  payload: i,
+});

@@ -3,6 +3,7 @@ import { combineReducers } from "redux";
 import localStorage from "redux-persist/lib/storage";
 import {persistReducer, persistStore} from "redux-persist";
 import dataReducer from "../reducers/dataReducer";
+import favoritesReducer from "../reducers/favoriteReducer";
 
 
 const persistConfig = {
@@ -12,7 +13,8 @@ const persistConfig = {
 };
 
 const bigReducer = combineReducers({
-  query: dataReducer
+  query: dataReducer,
+  favorites: favoritesReducer
 })
 const persistedReducer = persistReducer(persistConfig, bigReducer)
 
