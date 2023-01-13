@@ -10,15 +10,13 @@ const NavbarComponent = () => {
   return (
     <Navbar>
     <Container>
-      <Navbar.Brand href="#home">
+      <Navbar.Text>
         <Link to="/">Home</Link>
-      </Navbar.Brand>
-      <Navbar.Toggle />
-      <Navbar.Collapse className="justify-content-end">
-        <Navbar.Text>
+      </Navbar.Text>
+        <Navbar.Text className="justify-content-end">
          <Link to="/favorites">Favorites({favorites.length})</Link>
         </Navbar.Text>
-      </Navbar.Collapse>
+
     </Container>
   </Navbar>
   );

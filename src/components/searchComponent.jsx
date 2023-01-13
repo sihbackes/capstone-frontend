@@ -27,7 +27,6 @@ const SearchComponent = () => {
     e.preventDefault();
     dispatch(getDataAction(query, page));
   }
-
   const handleBackButton = async (e) => {
     setPage(page - 1)
     e.preventDefault();
@@ -52,11 +51,8 @@ const results = data.hits
             <ResultsPage results={results}/>
           </div>
       )}
-      
-    </Row>
-    <Row>
-    <button onClick={handleBackButton} disabled={page===1}>Back</button>
-    <button onClick={handleNextButton}>Next</button>
+      <button onClick={handleBackButton} disabled={page===1}>Back</button>
+      <button onClick={handleNextButton}>Next</button>
     </Row>
    </Container>
    
