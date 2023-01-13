@@ -9,6 +9,7 @@ const SearchComponent = () => {
 
   const data = useSelector((state) => state.query.dataImages)
   const [query, setQuery] = useState("");
+  const [page, setPage] = useState(1);
   const dispatch = useDispatch();
 
 
@@ -18,11 +19,22 @@ const SearchComponent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(getDataAction(query));
+    dispatch(getDataAction(query, page));
   };
 
+  const handleNextButton = async (e) => {
+    setPage(page + 1)
+    e.preventDefault();
+    dispatch(getDataAction(query, page));
+  }
+
+  const handleBackButton = async (e) => {
+    setPage(page - 1)
+    e.preventDefault();
+    dispatch(getDataAction(query, page));
+  }
 const results = data.hits
-console.log(results)
+// console.log(results)
   return(
     <>
    <Container>
@@ -37,11 +49,14 @@ console.log(results)
       </Form>
       {results && (
           <div>
-            {results.map((pic) => (    
-            <ResultsPage key={pic.id} data={pic}/>
-            ))}
+            <ResultsPage results={results}/>
           </div>
-        )}
+      )}
+      
+    </Row>
+    <Row>
+    <button onClick={handleBackButton} disabled={page===1}>Back</button>
+    <button onClick={handleNextButton}>Next</button>
     </Row>
    </Container>
    

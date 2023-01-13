@@ -1,13 +1,19 @@
 import { useDispatch } from "react-redux";
 import { addToFavoritesAction } from "../redux/actions";
 
-const ResultsPage = ({data}) => {
+
+
+const ResultsPage = ({results}) => {
   const dispatch = useDispatch();
   return(
-    <><img src={data.previewURL} alt=""    onClick={() => {
-      dispatch(addToFavoritesAction(data));
-    }}/></>
+  
+    <>
+    {results.map((data)=> (
+      <img key={data.id} src={data.previewURL} alt="" onClick={() => { dispatch(addToFavoritesAction(data))}}/>
+    ))}
+  </>
   )
 }
 
 export default ResultsPage
+

@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
 import FavoritesBoard from './components/FavoritesComponent';
 import NavbarComponent from './components/NavBarComponent';
 import SearchComponent from './components/SearchComponent';
