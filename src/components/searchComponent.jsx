@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { getDataAction } from "../redux/actions";
 import {Form, Container, Row} from 'react-bootstrap';
 import ResultsPage from "./ResultsComponents";
-
+import "../styles.css"
 
 const SearchComponent = () => {
 
@@ -33,19 +33,23 @@ const SearchComponent = () => {
     dispatch(getDataAction(query, page));
   }
 const results = data.hits
-// console.log(results)
+
   return(
     <>
-   <Container>
-    <Row>
-      <Form onSubmit={handleSubmit}>
+
+   <div className="main-banner">
+    
+   <Form className="main-form" onSubmit={handleSubmit}>
         <Form.Control
+        className="form-control"
           type="search"
           value={query}
           onChange={handleChange}
           placeholder="Search"
         />
       </Form>
+   </div>
+ 
       {results && (
           <div>
             <ResultsPage results={results}/>
@@ -53,8 +57,8 @@ const results = data.hits
       )}
       <button onClick={handleBackButton} disabled={page===1}>Back</button>
       <button onClick={handleNextButton}>Next</button>
-    </Row>
-   </Container>
+    
+ 
    
    </>
   )
