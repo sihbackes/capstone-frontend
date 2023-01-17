@@ -1,3 +1,5 @@
+
+
 .my-masonry-grid {
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */
@@ -15,13 +17,15 @@
 }
 
 img {
-  width: 400px;
+  width: 460px;
   padding: 1rem;
 
 }
 
 .div-pic {
 position: relative;
+display: flex;
+justify-content: center;
 }
 .icon {
   position: absolute;
@@ -40,10 +44,26 @@ position: relative;
   align-items: center;
 }
 .main-form {
- width: 50%;
+  background-color: white;
+  width: 50%;
+  display: flex;
+  border-radius: 22px;
 }
 
 .form-control{
   height: 3.3rem;
-  border-radius: 30px;
+  border: none;
+  border-radius: 22px;
+}
+
+.filter {
+ display: flex;
+ align-items: center;
+ margin-inline: 6px;
+}
+#dropdown-basic{
+ border-radius: 17px;
+ background-color: rgb(224, 224, 224);
+ border: none;
+ color: #495057;
 }

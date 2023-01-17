@@ -2,13 +2,13 @@ export const GET_DATA = "GET_DATA";
 export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES"
 export const REMOVE_FROM_FAVORITES = "REMOVE_FROM_FAVORITES";
 
-export const getDataAction = (query, page)=> {
+export const getDataAction = (query, page, type)=> {
   return async (dispatch)=> {
     const apiKey = "32769201-9cad72badaaf5bf0c85bbf23e"
    
     try {
       const response = await fetch(
-        `https://pixabay.com/api/?key=${apiKey}&q=${query}&image_type=photo&per_page=28&page=${page}`
+        `https://pixabay.com/api/?key=${apiKey}&q=${query}&image_type=${type}&per_page=28&page=${page}`
       );
       if(response.ok){
         let data = await response.json();

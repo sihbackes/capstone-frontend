@@ -1,5 +1,4 @@
 import { useSelector, useDispatch } from "react-redux"
-import {Container} from 'react-bootstrap';
 import Masonry from 'react-masonry-css'
 import { removeFromFavoritesAction } from "../redux/actions";
 import "../styles.css"
@@ -14,7 +13,7 @@ const FavoritesBoard = () => {
     700: 1
   }
   return(
-    <Container>
+    <>
      <Masonry breakpointCols={breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
         {favorites.map((data, i)=> (
           <div className="div-pic"  key={data.id}>
@@ -23,7 +22,7 @@ const FavoritesBoard = () => {
           </div>
         ))}
       </Masonry>
-    </Container>
+    </>
   )
 }
 
