@@ -8,7 +8,7 @@ const FavoritesBoard = () => {
   const favorites = useSelector((state) => state.favorites.content)
   const dispatch = useDispatch();
   const breakpoints = {
-    default: 3,
+    default: 4,
     1100: 2,
     700: 1
   }

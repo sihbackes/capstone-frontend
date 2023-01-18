@@ -1,16 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import FavoritesBoard from './components/FavoritesComponent';
-import NavbarComponent from './components/NavBarComponent';
-import SearchComponent from './components/SearchComponent';
+import MainPage from './components/MainPage';
+import FavoritesPage from './components/FavoritesPage';
+import ResultsPage from './components/ResultsPage';
+import DetailsPage from './components/DetailsPage';
 
 function App() {
   return (
     <BrowserRouter>
-     <NavbarComponent/>
      <Routes>
-        <Route path="/" element={ <SearchComponent/>} />
-        <Route path="/favorites" element={ <FavoritesBoard/>} />
+       <Route path="/" element={<MainPage/>}/>
+       <Route path="/favorites" element={ <FavoritesPage/>}/>
+       <Route path="/results" element={<ResultsPage/>}/>
+       <Route path="/detail/:id" element={<DetailsPage/>}/>
       </Routes>
      </BrowserRouter>
   );
