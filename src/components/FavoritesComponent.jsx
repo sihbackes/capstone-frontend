@@ -7,6 +7,7 @@ import { BsFillTrashFill} from 'react-icons/bs';
 
 const FavoritesBoard = () => {
   const favorites = useSelector((state) => state.favorites.content)
+  
   const dispatch = useDispatch();
   const breakpoints = {
     default: 4,

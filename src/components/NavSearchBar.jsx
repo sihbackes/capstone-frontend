@@ -4,6 +4,7 @@ import { useState} from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { getDataAction } from "../redux/actions";
 import {Form, Dropdown } from 'react-bootstrap';
+import logo from '../img/Pixabay-logo.svg.png'
 import "../styles.css"
 
 
@@ -28,36 +29,36 @@ const NavSearchBar = () => {
   return(
     <>
         <Navbar className='navbar'>
-    <Container>
-      <Navbar.Text>
-        <Link to="/">Home</Link>
-      </Navbar.Text>
-      <Form className="search-form" onSubmit={handleSubmit}>
-        <Form.Control
-          className="form-control-search"
-          type="search"
-          value={query}
-          onChange={handleChange}
-          placeholder="Search"
-        />
-        <Dropdown className="filter">
-          <Dropdown.Toggle id="dropdown-basic">
-            {type}
-          </Dropdown.Toggle>
+          <Container>
+           <Navbar.Text>
+             <Link to="/"><img className="logo" src={logo} alt="pixabay logo"/></Link>
+           </Navbar.Text>
+           <Form className="search-form" onSubmit={handleSubmit}>
+            <Form.Control
+             className="form-control-search"
+             type="search"
+             value={query}
+             onChange={handleChange}
+             placeholder="Search"
+            />
+            <Dropdown className="filter">
+             <Dropdown.Toggle id="dropdown-basic">
+             {type}
+             </Dropdown.Toggle>
 
-          <Dropdown.Menu>
-           <Dropdown.Item onClick={() => {setType("Photo")}}>Photo</Dropdown.Item>
-           <Dropdown.Item onClick={() => {setType("Illustration")}}>Illustration</Dropdown.Item>
-           <Dropdown.Item onClick={() => {setType("Vector")}}>Vector</Dropdown.Item>
-           </Dropdown.Menu>
-          </Dropdown>
-   </Form>
-        <Navbar.Text className="justify-content-end">
-         <Link to="/favorites">Favorites({favorites.length})</Link>
-        </Navbar.Text>
+             <Dropdown.Menu>
+              <Dropdown.Item onClick={() => {setType("Photo")}}>Photo</Dropdown.Item>
+              <Dropdown.Item onClick={() => {setType("Illustration")}}>Illustration</Dropdown.Item>
+              <Dropdown.Item onClick={() => {setType("Vector")}}>Vector</Dropdown.Item>
+             </Dropdown.Menu>
+            </Dropdown>
+           </Form>
+           <Navbar.Text className="justify-content-end">
+             <Link to="/favorites">Favorites({favorites.length})</Link>
+           </Navbar.Text>
 
-    </Container>
-  </Navbar>
+          </Container>
+        </Navbar>
     </>
   )
 }

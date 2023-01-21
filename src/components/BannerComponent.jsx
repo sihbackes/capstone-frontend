@@ -19,7 +19,6 @@ const Banner = () => {
   const[background, setBackground] = useState("2022/12/23/16/03/sunrise-7674594_960_720.jpg")
  
 
-
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
@@ -37,6 +36,11 @@ const Banner = () => {
       <div className="banner">
        <img className='image-banner' src={`https://cdn.pixabay.com/photo/${background}`} alt=''/>
        <div className='form-div'>
+        <div className='info-banner'>
+        <h1>Stunning free images & royalty free stock</h1>
+        <p>Over 2.7 million+ high quality stock images, videos and music shared by our talented community.</p>
+        </div>
+       
        <Form className="main-form" onSubmit={handleSubmit}>
         <Form.Control
           className="form-control"

@@ -1,6 +1,7 @@
 import {Container, Navbar} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { useSelector} from "react-redux"
+import logo from '../img/Pixabay-logo.svg.png'
 
 const NavbarComponent = () => {
   const favorites = useSelector((state) => state.favorites.content)
@@ -10,7 +11,7 @@ const NavbarComponent = () => {
     <Navbar className='navbar'>
     <Container>
       <Navbar.Text>
-        <Link to="/">Home</Link>
+        <Link to="/"><img className="logo" src={logo} alt="pixabay logo"/></Link>
       </Navbar.Text>
         <Navbar.Text className="justify-content-end">
          <Link to="/favorites">Favorites({favorites.length})</Link>

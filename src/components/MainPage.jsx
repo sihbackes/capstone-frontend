@@ -1,4 +1,5 @@
 import Banner from './BannerComponent';
+import Footer from './FooterComponent';
 import NavbarComponent from './NavBarComponent';
 
 const MainPage = () => {
@@ -6,6 +7,7 @@ const MainPage = () => {
    <>
      <NavbarComponent/>
      <Banner/>
+     <Footer/>
       
    </>
  )

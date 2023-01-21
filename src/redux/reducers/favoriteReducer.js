@@ -7,11 +7,17 @@ const initialState = {
 const favoritesReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_FAVORITES:
-      
-      return {
-        ...state,
-        content: [...state.content, action.payload],
-      };
+      ///prevent duplicate favourite
+      const find = state.content.find(element => element.id === action.payload.id) 
+      if(!find){
+        return {
+          ...state,
+          content: [...state.content, action.payload],
+        };
+      } else {
+        return state
+      }
+     
     case REMOVE_FROM_FAVORITES:
       return {
         ...state,

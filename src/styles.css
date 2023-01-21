@@ -13,11 +13,24 @@
 
 /* Style your items */
 .my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .navbar{
   height: 5rem;
+}
+
+.info-banner h1 {
+  color: white;
+  font-size: 2rem;
+  font-weight: bolder;
+   margin-bottom: 10px;
+}
+
+.info-banner p {
+  color: white;
+  font-size: 1rem;
+  margin-bottom:2rem ;
 }
 
 .image-list {
@@ -26,33 +39,35 @@
 }
 
 .div-pic {
+width: 23rem;
 position: relative;
 display: flex;
 justify-content: center;
 }
 
 .bottom-image{
-  padding: 1rem;
-  width: 80%;
+  padding: .5rem;
+  width: 100%;
   color: white;
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  bottom: 0;
+  bottom: 7px;
   transform: scale(0);
-
+  background: linear-gradient(0deg,rgba(0,0,0,.6) 0,transparent);
 }
 .div-pic:hover .bottom-image{
   transform: scale(1);
   transition: transform .3s ;
 }
 
-
-
+.red {
+  color: rgb(238, 84, 84);
+}
 .main-form {
   background-color: white;
-  width: 40rem;
+  width: 50rem;
   display: flex;
   border-radius: 22px;
   border: 2px solid #a1a7ad;;
@@ -137,7 +152,7 @@ color: #495057;
   border-radius: 22px;
 }
 
-/* //details page */
+
 
 .main-detail-div {
   display: flex;
@@ -150,4 +165,49 @@ color: #495057;
 
 .image-detail-info{
 color: rgba(0,0,0,.9);
+}
+
+
+.buttons-div {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-page {
+  margin-inline: 1rem;
+  border: none;
+  background-color: #495057;
+  color: white;
+  width: 8rem;
+  height: 2rem;
+  border-radius: 50px;
+}
+
+.logo{
+  width: 11rem;
+  
+}
+
+footer{
+display: flex;
+justify-content: space-between;
+}
+
+.logo-footer{
+  padding: 2rem;
+  
+}
+.info-footer{
+  padding: 2rem;
+  display: flex;
+}
+
+.links-footer{
+  margin: 1rem;
+}
+
+.icons-footer{
+ margin-right: 1.5rem; 
 }

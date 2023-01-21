@@ -4,6 +4,8 @@ import { getDataAction } from "../redux/actions";
 import "../styles.css"
 import NavSearchBar from "./NavSearchBar";
 import ResultsComponent from "./ResultsComponents";
+import { HiArrowNarrowLeft, HiArrowNarrowRight} from 'react-icons/hi';
+
 
 const ResultsNavBar = () => {
   const dispatch = useDispatch();
@@ -36,9 +38,11 @@ const results = data.hits
         <ResultsComponent results={results}/>
       </div>
     )}
-
-    <button onClick={handleBackButton} disabled={page===1}>Back</button>
-    <button onClick={handleNextButton}>Next</button>
+    <div className="buttons-div">
+    <button className="button-page" onClick={handleBackButton} disabled={page===1}>{<HiArrowNarrowLeft size={22}/>}</button>
+    <button className="button-page" onClick={handleNextButton}>{<HiArrowNarrowRight size={22}/>}</button>
+    </div>
+    
 </>
   );
 }
