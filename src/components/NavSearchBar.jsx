@@ -1,5 +1,5 @@
 import {Container, Navbar} from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState} from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { getDataAction } from "../redux/actions";
@@ -8,6 +8,7 @@ import "../styles.css"
 
 
 const NavSearchBar = () => {
+  let navigate = useNavigate();
   const favorites = useSelector((state) => state.favorites.content)
   const dispatch = useDispatch();
   const data = useSelector((state) => state.query.dataImages)
@@ -22,6 +23,7 @@ const NavSearchBar = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(getDataAction(query, page, type));
+    navigate ("/results")
   };
   return(
     <>
@@ -30,9 +32,9 @@ const NavSearchBar = () => {
       <Navbar.Text>
         <Link to="/">Home</Link>
       </Navbar.Text>
-      <Form className="main-form" onSubmit={handleSubmit}>
+      <Form className="search-form" onSubmit={handleSubmit}>
         <Form.Control
-          className="form-control"
+          className="form-control-search"
           type="search"
           value={query}
           onChange={handleChange}

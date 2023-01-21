@@ -20,9 +20,12 @@ const ResultsComponent = ({results}) => {
       <Masonry breakpointCols={breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
         {results.map((data)=> (
           <div className="div-pic" key={data.id}>
-            <AiFillHeart className="icon"  onClick={() => { dispatch(addToFavoritesAction(data))}}/>
+            <div className="bottom-image">
+            <div>{data.tags}</div>
+            <div><AiFillHeart size={22} className="icon"  onClick={() => { dispatch(addToFavoritesAction(data))}}/></div>
+            </div>
             <Link to={`/detail/${data.id}`}>
-             <img  src={data.webformatURL} alt="" />
+             <img className="image-list" src={data.webformatURL} alt="" />
             </Link>
             
           </div>

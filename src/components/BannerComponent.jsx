@@ -2,6 +2,7 @@ import '../styles.css'
 import {Form, Dropdown } from 'react-bootstrap';
 import { useState} from "react"
 import { useSelector, useDispatch } from "react-redux"
+import { useNavigate } from 'react-router-dom';
 import { getDataAction } from "../redux/actions"
 import ResultsPage from "./ResultsComponents";
 import {MdAddAPhoto} from 'react-icons/md'
@@ -9,6 +10,7 @@ import {BsBrushFill} from 'react-icons/bs'
 import {BsVectorPen} from 'react-icons/bs'
 
 const Banner = () => {
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const data = useSelector((state) => state.query.dataImages)
   const [query, setQuery] = useState("");
@@ -25,6 +27,7 @@ const Banner = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(getDataAction(query, page, type));
+    navigate ("results")
   };
 
   const results = data.hits

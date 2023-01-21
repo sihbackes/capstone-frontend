@@ -1,10 +1,11 @@
 import FavoritesBoard from "./FavoritesComponent"
-import FavoritesNavBar from "./FavoritesNavBar"
+import NavSearchBar from "./NavSearchBar"
 
 const FavoritesPage = () => {
   return (
     <>
-    <FavoritesNavBar/>
+
+    <NavSearchBar/>
     <FavoritesBoard/>
     </>
     
