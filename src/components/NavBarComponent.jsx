@@ -1,7 +1,7 @@
 import {Container, Navbar} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { useSelector} from "react-redux"
-import logo from '../img/Pixabay-logo.svg.png'
+import logo from '../img/logo.png'
 
 const NavbarComponent = () => {
   const favorites = useSelector((state) => state.favorites.content)

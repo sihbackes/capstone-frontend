@@ -1,3 +1,15 @@
+:root {
+  --white: #ffffff;
+  --gray-100: #e1e1e6;
+  --gray-300: #c4c4cc;
+  --gray-400: #8d8d99;
+  --gray-500: #323238;
+  --gray-700: #29292e;
+  --gray-800: #202024;
+  --gray-900: #121214;
+
+  --red-500: #f75a68;
+}
 
 
 .my-masonry-grid {
@@ -152,8 +164,6 @@ color: #495057;
   border-radius: 22px;
 }
 
-
-
 .main-detail-div {
   display: flex;
   justify-content: space-between;
@@ -186,13 +196,13 @@ color: rgba(0,0,0,.9);
 }
 
 .logo{
-  width: 11rem;
+  width: 4rem;
   
 }
 
 footer{
-display: flex;
-justify-content: space-between;
+ display: flex;
+ justify-content: space-between;
 }
 
 .logo-footer{
@@ -210,4 +220,30 @@ justify-content: space-between;
 
 .icons-footer{
  margin-right: 1.5rem; 
+}
+
+.footer-up{
+  margin-top: -10rem;
+  position: absolute;
+  width: 100%;
+}
+
+.results{
+position: relative;
+}
+
+.mask{
+  background: linear-gradient(0deg,rgba(0,0,0,.6) 0,transparent);
+  height: 29rem;
+  margin-top: -29rem;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.white-mask{
+  width: 100%;
+  height: 14rem;
+  background: white;
 }

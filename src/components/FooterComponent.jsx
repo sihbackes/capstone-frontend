@@ -1,4 +1,4 @@
-import logo from '../img/Pixabay-logo.svg.png'
+import logo from '../img/logo.png'
 import {AiOutlineInstagram, AiOutlineTwitter} from 'react-icons/ai'
 import {BsPinterest, BsFacebook} from 'react-icons/bs'
 

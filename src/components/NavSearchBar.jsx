@@ -4,7 +4,7 @@ import { useState} from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { getDataAction } from "../redux/actions";
 import {Form, Dropdown } from 'react-bootstrap';
-import logo from '../img/Pixabay-logo.svg.png'
+import logo from '../img/logo.png'
 import "../styles.css"
 
 

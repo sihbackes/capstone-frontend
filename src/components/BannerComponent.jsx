@@ -68,11 +68,19 @@ const Banner = () => {
       <BsBrushFill className='icon-after' onClick={() => {setBackground("2022/08/22/17/31/sea-7404152_960_720.png")}}/>
       <BsVectorPen className='icon-after' onClick={() => {setBackground("2019/07/08/04/23/traveling-4323759_960_720.png")}}/>
       </div>
+      <div className='results'>
       {results && (
           <div>
             <ResultsPage results={results}/>
           </div>
       )}
+
+      </div>
+      
+      <div className='mask'>
+       <div className='white-mask'></div>
+      </div>
+      
     </>
   )
 }
