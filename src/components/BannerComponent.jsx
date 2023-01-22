@@ -31,7 +31,7 @@ const Banner = () => {
   };
 
   const results = data.hits
- console.log(results)
+
   return(
     <>
       <div className="banner">

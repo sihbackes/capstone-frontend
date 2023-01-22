@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const ResultsComponent = ({results}) => {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.content)
-console.log(favorites)
+
 
   const handleFavorites = (id) => {
    const find = favorites.find(element => element.id === id)
@@ -28,7 +28,7 @@ console.log(favorites)
     700: 1
   }
   return(
-  <>
+  <div className="mt-4">
       <Masonry breakpointCols={breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
         {results.map((data)=> (
           <div className="div-pic" key={data.id}>
@@ -46,7 +46,7 @@ console.log(favorites)
           </div>
         ))}
       </Masonry>
-  </>
+  </div>
   )
 }
 

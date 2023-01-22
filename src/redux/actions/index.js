@@ -2,6 +2,7 @@ export const GET_DATA = "GET_DATA";
 export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES"
 export const REMOVE_FROM_FAVORITES = "REMOVE_FROM_FAVORITES";
 export const GET_IMG_BY_ID = "GET_IMG_BY_ID"
+export const GET_NEXT = "GET_NEXT"
 
 export const getDataAction = (query, page, type)=> {
   return async (dispatch)=> {
@@ -13,13 +14,20 @@ export const getDataAction = (query, page, type)=> {
       );
       if(response.ok){
         let data = await response.json();
+
+        if(page >= 2){
+          dispatch({
+            type:GET_NEXT,
+            payload:data,
+          })
+        }
         dispatch({
           type:GET_DATA,
           payload:data,
         })
       }
     } catch (error) {
-      console.log(error.message)
+      console.log("oi",error.message)
     }
   }
 }
