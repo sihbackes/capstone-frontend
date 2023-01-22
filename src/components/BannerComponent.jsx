@@ -17,6 +17,7 @@ const Banner = () => {
   const [page, setPage] = useState(1);
   const [type, setType] = useState("All");
   const[background, setBackground] = useState("2022/12/23/16/03/sunrise-7674594_960_720.jpg")
+
  
 
   const handleChange = (e) => {
@@ -63,10 +64,18 @@ const Banner = () => {
       </Form>
        </div>
       </div>
+ 
       <div className='after-banner'>
-      <MdAddAPhoto className='icon-after' onClick={() => {setBackground("2022/11/19/14/26/nature-7602212_960_720.jpg")}}/>
-      <BsBrushFill className='icon-after' onClick={() => {setBackground("2022/08/22/17/31/sea-7404152_960_720.png")}}/>
-      <BsVectorPen className='icon-after' onClick={() => {setBackground("2019/07/08/04/23/traveling-4323759_960_720.png")}}/>
+       <div className='cursor d-flex align-items-center m-3' onClick={() => {setType("Photo");setBackground("2022/11/19/14/26/nature-7602212_960_720.jpg")}}>
+        <MdAddAPhoto className='icon-after'/> Photo
+       </div>
+       <div className='cursor d-flex align-items-center m-3' onClick={() => {setType("Illustration"); setBackground("2019/08/31/22/19/landscape-4444133_960_720.jpg")}}>
+       <BsBrushFill className='icon-after'/> Illustration
+       </div> 
+       <div className=' cursor d-flex align-items-center m-3' onClick={() => {setType("Vector"); setBackground("2016/05/24/16/48/mountains-1412683_960_720.png")}}>
+       <BsVectorPen className='icon-after'/>Vector
+       </div>
+      
       </div>
       <div className='results'>
       {results && (

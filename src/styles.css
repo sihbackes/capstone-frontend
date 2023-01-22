@@ -1,5 +1,6 @@
 :root {
   --white: #ffffff;
+  --off-white: rgb(248, 250, 252);
   --gray-100: #e1e1e6;
   --gray-300: #c4c4cc;
   --gray-400: #8d8d99;
@@ -30,17 +31,18 @@
 
 .navbar{
   height: 5rem;
+  background-color: var(--off-white);
 }
 
 .info-banner h1 {
-  color: white;
+  color: var(--white);
   font-size: 2rem;
   font-weight: bolder;
-   margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .info-banner p {
-  color: white;
+  color: var(--white);
   font-size: 1rem;
   margin-bottom:2rem ;
 }
@@ -60,7 +62,7 @@ justify-content: center;
 .bottom-image{
   padding: .5rem;
   width: 100%;
-  color: white;
+  color: var(--white);
   position: absolute;
   display: flex;
   align-items: center;
@@ -75,14 +77,15 @@ justify-content: center;
 }
 
 .red {
-  color: rgb(238, 84, 84);
+  color: var(--red-500);
 }
+
 .main-form {
-  background-color: white;
+  background-color: var(--white);
   width: 50rem;
   display: flex;
   border-radius: 22px;
-  border: 2px solid #a1a7ad;;
+  border: 2px solid var(--gray-100);
 }
 
 .form-control{
@@ -92,9 +95,9 @@ justify-content: center;
 }
 
 .form-control:focus{
-outline: none;
-border-color: none;
-box-shadow: none;
+ outline: none;
+ border-color: none;
+ box-shadow: none;
 }
 
 .filter {
@@ -108,9 +111,9 @@ box-shadow: none;
 
 #dropdown-basic{
  border-radius: 17px;
- background-color: rgb(224, 224, 224);
+ background-color: var(--gray-100);
  border: none;
- color: #495057;
+ color: var(--gray-500);
 }
 
 #dropdown-basic:focus{
@@ -138,24 +141,27 @@ align-items: center;
 }
 
 .after-banner{
-  height: 6rem;
+  height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .icon-after{
-font-size: 30px;
-margin-inline: 5rem;
-color: #495057;
+font-size: 20px;
+margin-inline: 2px;
+color: var(--gray-700);
+}
+.cursor{
+  cursor: pointer;
 }
 
 .search-form{
-  background-color: white;
+  background-color: var(--white);
   width: 30rem;
   display: flex;
   border-radius: 22px;
-  border: 2px solid #a1a7ad;
+  border: 2px solid var(--gray-400);
 }
 
 .form-control-search{
@@ -174,7 +180,7 @@ color: #495057;
 }
 
 .image-detail-info{
-color: rgba(0,0,0,.9);
+color: var(--gray-700);
 }
 
 
@@ -188,7 +194,7 @@ color: rgba(0,0,0,.9);
 .button-page {
   margin-inline: 1rem;
   border: none;
-  background-color: #495057;
+  background-color: var(--gray-400);
   color: white;
   width: 8rem;
   height: 2rem;
@@ -203,6 +209,7 @@ color: rgba(0,0,0,.9);
 footer{
  display: flex;
  justify-content: space-between;
+ background-color: var(--off-white);
 }
 
 .logo-footer{
@@ -223,7 +230,7 @@ footer{
 }
 
 .footer-up{
-  margin-top: -10rem;
+  margin-top: -12rem;
   position: absolute;
   width: 100%;
 }
@@ -245,5 +252,5 @@ position: relative;
 .white-mask{
   width: 100%;
   height: 14rem;
-  background: white;
+  background: var(--white);
 }

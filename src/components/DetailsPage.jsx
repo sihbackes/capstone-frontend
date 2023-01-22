@@ -4,6 +4,7 @@ import { useEffect} from "react";
 import { getImageByIdAction } from "../redux/actions";
 import { Container } from "react-bootstrap";
 import NavSearchBar from "./NavSearchBar";
+import Footer from "./FooterComponent";
 
 const DetailsPage = () => {
   const data = useSelector((state) => state.image.dataImage)
@@ -21,9 +22,9 @@ const DetailsPage = () => {
 
   return(
     <>
-   <NavSearchBar/>
-    <Container>
-      <div className="main-detail-div">
+     <NavSearchBar/>
+      <Container>
+      <div className="main-detail-div mt-5">
       <div>
       <img className="image-detail" src={image.webformatURL} alt="" />
       </div>
@@ -35,8 +36,8 @@ const DetailsPage = () => {
       </div>
      
     
-    </Container>
-
+      </Container>
+     <Footer/>
     </>
     
   )
