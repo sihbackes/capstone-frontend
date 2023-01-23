@@ -9,17 +9,11 @@ const FavoritesBoard = () => {
   const favorites = useSelector((state) => state.favorites.content)
   const dispatch = useDispatch();
   
-  const breakpoints = {
-    default: 4,
-    1400: 3,
-    900: 2,
-    800:1
-  }
   return(
     <div className="mt-5 mb-5">
-     <Masonry breakpointCols={breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
+     <div className="masonry">
         {favorites.map((data, i)=> (
-          <div className="div-pic"  key={data.id}>
+          <div className="div-pic masonry-image"  key={data.id}>
             <div className="bottom-image">
               <div>{data.tags}</div>
               <div><BsFillTrashFill className="icon" onClick={() => { dispatch(removeFromFavoritesAction(i))}}/></div>
@@ -30,7 +24,7 @@ const FavoritesBoard = () => {
             </Link>
           </div>
         ))}
-      </Masonry>
+      </div>
     </div>
   )
 }

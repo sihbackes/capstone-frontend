@@ -20,18 +20,11 @@ const ResultsComponent = ({results}) => {
   }
 
 
-
-  const breakpoints = {
-    default: 4,
-    1400: 3,
-    900: 2,
-    800:1
-  }
   return(
   <div className="mt-4">
-      <Masonry breakpointCols={breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
+      <div className="masonry">
         {results.map((data)=> (
-          <div className="div-pic" key={data.id}>
+          <div className="div-pic masonry-image" key={data.id}>
             
             <div className="bottom-image">
             <div>{data.tags}</div>
@@ -40,12 +33,13 @@ const ResultsComponent = ({results}) => {
             </div>
             </div>
             <Link to={`/detail/${data.id}`}> 
+        
              <img className="image-list" src={data.webformatURL} alt="" />
             </Link>
             
           </div>
         ))}
-      </Masonry>
+      </div>
   </div>
   )
 }

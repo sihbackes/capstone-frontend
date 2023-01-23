@@ -47,18 +47,6 @@
   margin-bottom:2rem ;
 }
 
-.image-list {
-  width: 23rem;
-  padding-bottom: .5rem;
-}
-
-.div-pic {
-width: 23rem;
-position: relative;
-display: flex;
-justify-content: center;
-}
-
 .bottom-image{
   padding: .5rem;
   width: 100%;
@@ -67,10 +55,10 @@ justify-content: center;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  bottom: 7px;
   transform: scale(0);
   background: linear-gradient(0deg,rgba(0,0,0,.6) 0,transparent);
 }
+
 .div-pic:hover .bottom-image{
   transform: scale(1);
   transition: transform .3s ;
@@ -229,13 +217,33 @@ footer{
  margin-right: 1.5rem; 
 }
 
-.footer-up{
-  margin-top: -12rem;
-  position: absolute;
-  width: 100%;
-}
+
 
 .results{
 position: relative;
 }
 
+.div-pic {
+
+position: relative;
+display: flex;
+justify-content: center;
+} 
+
+.masonry{
+  display: flex;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.masonry-image{
+  max-height: 23rem;
+  max-width: 20rem;
+  margin:  0 1rem 1rem 0;
+  flex: 1 0 auto;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
