@@ -24,7 +24,7 @@ const DetailsPage = () => {
     <>
      <NavSearchBar/>
       <Container>
-      <div className="main-detail-div">
+      <div className="main-detail-div mt-5 mb-5">
       <div>
       <img className="image-detail" src={image.webformatURL} alt="" />
       </div>

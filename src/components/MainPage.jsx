@@ -7,9 +7,8 @@ const MainPage = () => {
    <>
      <NavbarComponent/>
      <Banner/>
-     <div className='footer-up'>
      <Footer/>
-     </div>
+
    </>
  )
 }

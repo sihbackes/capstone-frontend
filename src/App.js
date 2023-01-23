@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './components/MainPage';
 import FavoritesPage from './components/FavoritesPage';
-import ResultsMainPage from './components/ResultsPage';
+import ResultsMainPage from './components/ResultsMainPage';
 import DetailsPage from './components/DetailsPage';
 
 function App() {

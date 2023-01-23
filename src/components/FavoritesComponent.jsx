@@ -7,12 +7,13 @@ import { BsFillTrashFill} from 'react-icons/bs';
 
 const FavoritesBoard = () => {
   const favorites = useSelector((state) => state.favorites.content)
-  
   const dispatch = useDispatch();
+  
   const breakpoints = {
     default: 4,
-    1100: 2,
-    700: 1
+    1400: 3,
+    900: 2,
+    800:1
   }
   return(
     <div className="mt-5 mb-5">

@@ -23,9 +23,9 @@ const ResultsComponent = ({results}) => {
 
   const breakpoints = {
     default: 4,
-    1250: 3,
-    1100: 2,
-    700: 1
+    1400: 3,
+    900: 2,
+    800:1
   }
   return(
   <div className="mt-4">

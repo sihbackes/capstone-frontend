@@ -17,6 +17,8 @@ const NavSearchBar = () => {
   const [page, setPage] = useState(1);
   const [type, setType] = useState("All");
   
+  console.log("NavSearchBar",type)
+
   const handleChange = (e) => {
     setQuery(e.target.value);
   };

@@ -18,7 +18,7 @@ const Banner = () => {
   const [type, setType] = useState("All");
   const[background, setBackground] = useState("2022/12/23/16/03/sunrise-7674594_960_720.jpg")
 
- 
+  console.log("banner",type)
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -86,9 +86,7 @@ const Banner = () => {
 
       </div>
       
-      <div className='mask'>
-       <div className='white-mask'></div>
-      </div>
+    
       
     </>
   )
