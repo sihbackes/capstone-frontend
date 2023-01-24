@@ -315,12 +315,15 @@ a:hover{
   text-decoration: none;
 }
 
-.phrase-footer{
-  background-color: aqua;
+@media screen and (max-width: 1340px) {
+  
 }
 
-@media (max-width: 769px ) {
-   .phrase-footer{
-    background-color: #f75a68;
-  }
+@media screen and (max-width: 780px) {
+ .phrase-footer {
+  display: none;
+ }
+ .links-footer{
+  display:  none;
+ }
 }
