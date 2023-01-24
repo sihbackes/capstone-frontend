@@ -14,7 +14,8 @@ const DetailsPage = () => {
   const dispatch = useDispatch();
   const params = useParams();
   let id = params.id
-  console.log(id)
+  console.log(data)
+  console.log(data.hits)
   const handleFavorites = (id) => {
     const find = favorites.find(element => element.id === id)
     if(find){
@@ -31,6 +32,7 @@ const DetailsPage = () => {
   if(!data) {
     return "loading...."
   }
+  
   const image = data.hits[0]
 
 
