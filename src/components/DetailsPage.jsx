@@ -26,7 +26,11 @@ const DetailsPage = () => {
    }
 
   useEffect(() => {
-   dispatch(getImageByIdAction(id))
+    const getData = async () => {
+      dispatch(getImageByIdAction(id))
+    };
+  getData()
+  
   },[dispatch, id]);
   
   if(!data) {
