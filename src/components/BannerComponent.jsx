@@ -31,6 +31,7 @@ const Banner = () => {
   };
 
   const results = data.hits
+  
 
   return(
     <>

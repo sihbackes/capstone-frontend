@@ -9,7 +9,7 @@ const Footer = () => {
     <footer>
       <div className='logo-footer'>
        <img className="logo mb-3" src={logo} alt="pixabay logo"/>
-       <p>Over 3 million+ high quality stock images, videos and music shared by our talented community.</p>
+       <p className='phrase-footer'>Over 3 million+ high quality stock images, videos and music shared by our talented community.</p>
        <div className='mb-3'>
          <AiOutlineInstagram size={30} className='icons-footer'/>
          <BsPinterest size={25} className='icons-footer'/>

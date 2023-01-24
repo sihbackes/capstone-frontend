@@ -12,23 +12,6 @@
   --red-500: #f75a68;
 }
 
-
-.my-masonry-grid {
-  display: -webkit-box; /* Not needed if autoprefixing */
-  display: -ms-flexbox; /* Not needed if autoprefixing */
-  display: flex;
-  width: auto;
-}
-.my-masonry-grid_column {
-  background-clip: padding-box;
-
-}
-
-/* Style your items */
-.my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
-  margin-bottom: 10px;
-}
-
 .navbar{
   height: 4rem;
   background-color: var(--off-white);
@@ -129,10 +112,14 @@ align-items: center;
 }
 
 .after-banner{
-  height: rem;
+  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.icon{
+  cursor: pointer;
 }
 
 .icon-after{
@@ -165,10 +152,15 @@ color: var(--gray-700);
 
 .image-detail {
   width: 50rem;
+  box-shadow: 8px 8px 5px var(--gray-100);
 }
 
 .image-detail-info{
-color: var(--gray-700);
+ color: var(--gray-700);
+ font-size: 1.1rem;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
 }
 
 
@@ -188,10 +180,13 @@ color: var(--gray-700);
   height: 2rem;
   border-radius: 50px;
 }
+.button-page:hover{
+  background-color: var(--gray-500);
+  transition: 1s;
+}
 
 .logo{
  height: 2rem;
-  
 }
 
 footer{
@@ -216,8 +211,6 @@ footer{
 .icons-footer{
  margin-right: 1.5rem; 
 }
-
-
 
 .results{
 position: relative;
@@ -248,7 +241,6 @@ justify-content: center;
 }
 
 .image-container{
-  object-fit: fill;
   object-position: center;
 }
 .fav-heart-nav {
@@ -261,6 +253,10 @@ height: 2rem;
   height: 30px;
   width: 30px;
   color: var(--gray-500);
+}
+
+.fav-icon:hover{
+  color: var(--gray-400);
 }
 .fav-number{
   height: 16px;
@@ -278,3 +274,53 @@ height: 2rem;
   bottom: 17px;
 }
 
+.download-btn {
+  margin-inline: 1rem;
+  border: none;
+  background-color: var(--gray-400);
+  color: white;
+  width: 10rem;
+  height: 2.3rem;
+  border-radius: 50px;
+}
+.download-btn:hover{
+  background-color: var(--gray-500);
+  transition: 1s;
+}
+
+.user-image {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+ object-fit: cover;
+ object-position: 50% 50%;
+}
+
+.user-info{
+  display: flex;
+ align-items: center;
+}
+
+.user-info-p {
+margin-left: 10px;
+color: var(--gray-700);
+
+}
+
+.user-info-p:hover {
+  color: var(--gray-300);
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.phrase-footer{
+  background-color: aqua;
+}
+
+@media (max-width: 769px ) {
+   .phrase-footer{
+    background-color: #f75a68;
+  }
+}
