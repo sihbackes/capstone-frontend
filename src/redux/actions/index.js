@@ -20,7 +20,7 @@ export const getDataAction = (query, page, type)=> {
         })
       }
     } catch (error) {
-      console.log("oi",error.message)
+      console.log(error.message)
     }
   }
 }

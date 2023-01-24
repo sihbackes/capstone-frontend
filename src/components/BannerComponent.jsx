@@ -1,6 +1,6 @@
 import '../styles.css'
 import {Form, Dropdown } from 'react-bootstrap';
-import { useState} from "react"
+import { useState, useEffect} from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from 'react-router-dom';
 import { getDataAction } from "../redux/actions"
@@ -18,7 +18,9 @@ const Banner = () => {
   const [type, setType] = useState("All");
   const[background, setBackground] = useState("2023/01/10/08/48/water-7709322_960_720.jpg")
  
-
+  useEffect(() => {
+    dispatch(getDataAction("nature", 1, type))
+  }, [dispatch, type]);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
