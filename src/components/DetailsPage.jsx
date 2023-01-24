@@ -14,7 +14,7 @@ const DetailsPage = () => {
   const dispatch = useDispatch();
   const params = useParams();
   let id = params.id
- 
+  console.log(id)
   const handleFavorites = (id) => {
     const find = favorites.find(element => element.id === id)
     if(find){
@@ -27,7 +27,10 @@ const DetailsPage = () => {
   useEffect(() => {
    dispatch(getImageByIdAction(id))
   },[dispatch, id]);
-  console.log(data)
+  
+  if(!data) {
+    return "loading...."
+  }
   const image = data.hits[0]
 
 
