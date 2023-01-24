@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { getDataAction } from "../redux/actions";
 import {Form, Dropdown } from 'react-bootstrap';
 import logo from '../img/logo.png'
+import {MdFavorite} from 'react-icons/md'
 import "../styles.css"
 
 
@@ -12,12 +13,9 @@ const NavSearchBar = () => {
   let navigate = useNavigate();
   const favorites = useSelector((state) => state.favorites.content)
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.query.dataImages)
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [type, setType] = useState("All");
-  
-  console.log("NavSearchBar",type)
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -49,14 +47,23 @@ const NavSearchBar = () => {
              </Dropdown.Toggle>
 
              <Dropdown.Menu>
-              <Dropdown.Item onClick={() => {setType("Photo")}}>Photo</Dropdown.Item>
-              <Dropdown.Item onClick={() => {setType("Illustration")}}>Illustration</Dropdown.Item>
-              <Dropdown.Item onClick={() => {setType("Vector")}}>Vector</Dropdown.Item>
+              <Dropdown.Item onClick={() => {setType("photo")}}>Photo</Dropdown.Item>
+              <Dropdown.Item onClick={() => {setType("illustration")}}>Illustration</Dropdown.Item>
+              <Dropdown.Item onClick={() => {setType("vector")}}>Vector</Dropdown.Item>
              </Dropdown.Menu>
             </Dropdown>
            </Form>
            <Navbar.Text className="justify-content-end">
-             <Link to="/favorites">Favorites({favorites.length})</Link>
+             <Link to="/favorites">
+
+              <div className='fav-icon'> 
+              <div>
+              <MdFavorite size={30}/>
+              </div>
+              <div className='fav-number'>{favorites.length}</div>
+              </div>
+             
+            </Link>
            </Navbar.Text>
 
           </Container>

@@ -1,4 +1,4 @@
-import { GET_DATA, GET_NEXT } from "../actions";
+import { GET_DATA} from "../actions";
 
 
 const initialState = {
@@ -12,15 +12,6 @@ const dataReducer = (state = initialState, action) => {
         ...state,
         dataImages: action.payload,
       }
-      // case GET_NEXT:
-      //   const actualState = state.dataImages
-      //   let fixHits = actualState.hits.concat(action.payload.hits)
-      //   actualState.hits = fixHits
-  
-        // return {
-        //   ...state,
-        //   dataImages: actualState,
-        // }
   
     default:
       return state

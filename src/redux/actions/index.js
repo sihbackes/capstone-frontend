@@ -9,7 +9,7 @@ export const getDataAction = (query, page, type)=> {
    
     try {
       const response = await fetch(
-        `https://pixabay.com/api/?key=${apiKey}&q=${query}&image_type=${type}&per_page=48&page=${page}`
+        `https://pixabay.com/api/?key=${apiKey}&q=${query}&image_type=${type}&per_page=60&page=${page}`
       );
       if(response.ok){
         let data = await response.json();

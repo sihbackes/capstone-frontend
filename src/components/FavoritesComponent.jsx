@@ -1,5 +1,4 @@
 import { useSelector, useDispatch } from "react-redux"
-import Masonry from 'react-masonry-css'
 import { Link } from "react-router-dom";
 import { removeFromFavoritesAction } from "../redux/actions";
 import "../styles.css"
@@ -20,7 +19,9 @@ const FavoritesBoard = () => {
 
             </div>
             <Link to={`/detail/${data.id}`}>
-            <img className="image-list" src={data.webformatURL} alt="" />
+            <div className="image-container">
+            <img src={data.webformatURL} alt="" />
+            </div>
             </Link>
           </div>
         ))}
