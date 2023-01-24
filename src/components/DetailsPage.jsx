@@ -41,7 +41,7 @@ const DetailsPage = () => {
 
 
   
-  if(!data) {
+  if(data.length === 0) {
     return "loading...."
   }
   
