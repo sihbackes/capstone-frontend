@@ -26,24 +26,12 @@ export const getDataAction = (query, page, type)=> {
 }
 
 
-export const addToFavoritesAction = (pic) => {
-  return {
-    type: ADD_TO_FAVORITES,
-    payload: pic,
-  };
-};
-
-export const removeFromFavoritesAction = (i) => ({
-  type: REMOVE_FROM_FAVORITES,
-  payload: i,
-});
-
-
 export const getImageByIdAction = (id) => {
 
   return async (dispatch)=> {
     const apiKey = "32769201-9cad72badaaf5bf0c85bbf23e"
-   
+    console.log(id)
+    console.log("teste")
     try {
       const response = await fetch(
         `https://pixabay.com/api/?key=${apiKey}&id=${id}`
@@ -60,3 +48,15 @@ export const getImageByIdAction = (id) => {
     }
   }
 }
+
+export const addToFavoritesAction = (pic) => {
+  return {
+    type: ADD_TO_FAVORITES,
+    payload: pic,
+  };
+};
+
+export const removeFromFavoritesAction = (i) => ({
+  type: REMOVE_FROM_FAVORITES,
+  payload: i,
+});
