@@ -1,4 +1,4 @@
-import {  Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect} from "react";
 import { getImageByIdAction } from "../redux/actions";
@@ -26,7 +26,7 @@ const DetailsPage = () => {
 
   useEffect(() => {
    dispatch(getImageByIdAction(id))
-  },[]);
+  },[dispatch, id]);
   console.log(data)
   const image = data.hits[0]
 

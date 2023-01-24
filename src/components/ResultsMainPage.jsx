@@ -11,9 +11,9 @@ import { HiArrowNarrowLeft, HiArrowNarrowRight} from 'react-icons/hi';
 const ResultsMainPage = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.query.dataImages)
-  const [query, setQuery] = useState("");
+  const [query] = useState("");
   const [page, setPage] = useState(1);
-  const [type, setType] = useState("All");
+  const [type] = useState("All");
 
 
   const handleNextButton = async (e) => {

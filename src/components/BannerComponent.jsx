@@ -14,7 +14,7 @@ const Banner = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.query.dataImages)
   const [query, setQuery] = useState("");
-  const [page, setPage] = useState(1);
+  const [page] = useState(1);
   const [type, setType] = useState("All");
   const[background, setBackground] = useState("2023/01/10/08/48/water-7709322_960_720.jpg")
  

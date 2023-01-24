@@ -14,7 +14,7 @@ const NavSearchBar = () => {
   const favorites = useSelector((state) => state.favorites.content)
   const dispatch = useDispatch();
   const [query, setQuery] = useState("");
-  const [page, setPage] = useState(1);
+  const [page] = useState(1);
   const [type, setType] = useState("All");
 
   const handleChange = (e) => {
