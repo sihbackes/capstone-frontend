@@ -37,6 +37,7 @@ const Banner = () => {
 
   return(
     <>
+     
       <div className="banner">
        <img className='image-banner' src={`https://cdn.pixabay.com/photo/${background}`} alt=''/>
        <div className='form-div'>
@@ -68,17 +69,19 @@ const Banner = () => {
        </div>
       </div>
  
+
+ 
       <div className='after-banner'>
-      <div className=' cursor d-flex align-items-center m-3' onClick={() => {setType("all"); setBackground("2023/01/10/08/48/water-7709322_960_720.jpg")}}>
-        <BsImages className='icon-after mr-1'/> All Images
+      <div className=' cursor d-flex align-items-center all-images' onClick={() => {setType("all"); setBackground("2023/01/10/08/48/water-7709322_960_720.jpg")}}>
+        <BsImages className='icon-after mr-1 '/> All Images
        </div>
-       <div className='cursor d-flex align-items-center m-3' onClick={() => {setType("photo");setBackground("2022/11/19/14/26/nature-7602212_960_720.jpg")}}>
+       <div className='cursor d-flex align-items-center' onClick={() => {setType("photo");setBackground("2022/11/19/14/26/nature-7602212_960_720.jpg")}}>
         <MdAddAPhoto className='icon-after'/> Photo
        </div>
-       <div className='cursor d-flex align-items-center m-3' onClick={() => {setType("illustration"); setBackground("2019/08/31/22/19/landscape-4444133_960_720.jpg")}}>
+       <div className='cursor d-flex align-items-center ' onClick={() => {setType("illustration"); setBackground("2019/08/31/22/19/landscape-4444133_960_720.jpg")}}>
        <BsBrushFill className='icon-after'/> Illustration
        </div> 
-       <div className=' cursor d-flex align-items-center m-3' onClick={() => {setType("vector"); setBackground("2016/05/24/16/48/mountains-1412683_960_720.png")}}>
+       <div className=' cursor d-flex align-items-center' onClick={() => {setType("vector"); setBackground("2016/05/24/16/48/mountains-1412683_960_720.png")}}>
        <BsVectorPen className='icon-after'/>Vector
        </div>
        

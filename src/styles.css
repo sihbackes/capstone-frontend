@@ -100,11 +100,11 @@ align-items: center;
 }
 
 .image-banner{
+  position: absolute;
   width: 100%;
-  height: 36rem;
+  height: 35rem;
   object-fit: cover;
   object-position: 0 -200px;
-  position: absolute;
 }
 
 .form-div{
@@ -129,6 +129,7 @@ color: var(--gray-700);
 }
 .cursor{
   cursor: pointer;
+  margin: 10px;
 }
 
 .search-form{
@@ -148,8 +149,14 @@ color: var(--gray-700);
 .main-detail-div {
   display: flex;
   justify-content: space-between;
+  max-width: 80vw;
 }
 
+.detail-container {
+  display: flex;
+  justify-content: center;
+
+  }
 .image-detail {
   width: 50rem;
   box-shadow: 8px 8px 5px var(--gray-100);
@@ -161,6 +168,7 @@ color: var(--gray-700);
  display: flex;
  flex-direction: column;
  align-items: center;
+ padding:1rem;
 }
 
 
@@ -273,15 +281,19 @@ height: 2rem;
   left: 20px;
   bottom: 17px;
 }
+.detail-div{
+ padding: 2px;
+}
 
 .download-btn {
-  margin-inline: 1rem;
+  margin: 3rem;
   border: none;
   background-color: var(--gray-400);
   color: white;
   width: 10rem;
   height: 2.3rem;
   border-radius: 50px;
+  ;
 }
 .download-btn:hover{
   background-color: var(--gray-500);
@@ -299,6 +311,7 @@ height: 2rem;
 .user-info{
   display: flex;
  align-items: center;
+ margin-bottom: 1rem;
 }
 
 .user-info-p {
@@ -315,15 +328,90 @@ a:hover{
   text-decoration: none;
 }
 
-@media screen and (max-width: 1340px) {
+
+@media screen and (max-width: 1147px) {
+  .banner{
+    height: 20rem;
+    align-items: flex-start;
+   }
   
+   .image-banner{
+    height: 20rem;
+   }
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 820px) {
  .phrase-footer {
   display: none;
  }
  .links-footer{
   display:  none;
  }
+
+ .main-form{
+  width: 20rem;
+  margin: auto;
+ }
+ .banner{
+  height: 21rem;
+  align-items: flex-start;
+ }
+
+ .image-banner{
+  height: 34rem;
+ }
+ .form-div{
+  margin: auto;
+  padding: 1rem;
+ }
+ .info-banner h1{
+  font-size: 1.7rem;
+ } 
+ .all-images{
+  display: none;
+ }
+ .cursor {
+  margin: 4px;
+ }
+ .main-detail-div{
+  display: block;
+ }
+
+ .image-detail{
+  width: 35rem;
+ }
+ 
+}
+@media screen and (max-width:600px) {
+  .main-detail-div{
+    display: block;
+   }
+  
+   .image-detail{
+    width: 32rem;
+   }
+   .image-detail-info{
+    font-size: 1rem;
+   }
+   .search-form{
+    width: 17rem;
+  }
+   
+}
+
+@media screen and (max-width: 450px) {
+  .main-detail-div{
+    display: block;
+   }
+  
+   .image-detail{
+    width: 18rem;
+   }
+   .image-detail-info{
+    font-size: 1rem;
+   }
+   .search-form{
+    width: 15rem;
+  }
+   
 }
