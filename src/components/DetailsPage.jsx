@@ -10,18 +10,24 @@ import { getImageByIdAction } from "../redux/actions";
 // import {AiOutlineTag, AiFillHeart, AiOutlineHeart, AiOutlineDownload} from 'react-icons/ai'
 
 const DetailsPage = () => {
-  const data = useSelector((state) => state.image.dataImage)
-  // const favorites = useSelector((state) => state.favorites.content)
-  const dispatch = useDispatch();
   const params = useParams();
   let id = params.id
-  console.log(data)
-  console.log(data.hits)
+  const dispatch = useDispatch();
 
   useEffect(() => {
     console.log("useEffect")
     dispatch(getImageByIdAction(id))
   }, [dispatch, id]);
+
+  const data = useSelector((state) => state.image.dataImage)
+  // const favorites = useSelector((state) => state.favorites.content)
+ 
+
+
+  console.log(data)
+  console.log(data.hits)
+
+ 
 
 
   // const handleFavorites = (id) => {
