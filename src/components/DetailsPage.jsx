@@ -42,7 +42,7 @@ const DetailsPage = () => {
   return(
     <>
      <NavSearchBar/>
-      <div className="detail-container">
+      <div className="detail-container mt-5 mb-5">
       <div className="main-detail-div">
        <div>
          <img className="image-detail" src={image.webformatURL} alt="" />
