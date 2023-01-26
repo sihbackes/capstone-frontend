@@ -8,7 +8,7 @@ import LoginPage from './LoginPage';
 
 const NavbarComponent = () => {
   const favorites = useSelector((state) => state.favorites.content)
-  const logged = true
+  const logged = false
   
 
   return (
