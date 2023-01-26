@@ -329,6 +329,43 @@ a:hover{
 }
 
 
+.join-btn{
+  border: 1px solid var(--gray-300);
+  background-color: var(--gray-100);
+  color: var(--gray-500);
+  border-radius: 35px;
+  height: 2rem;
+  width: 4rem;
+}
+.join-btn:hover{
+  background-color: var(--gray-300);
+}
+
+.user-pic{
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+}
+
+#dropdown-basic-users{
+  border-radius: 17px;
+  background-color: transparent;
+  border: none;
+  color: var(--gray-500);
+ }
+ 
+ #dropdown-basic-users:focus{
+ box-shadow: 0 0 0 0.1rem rgba(194, 200, 206, 0.5);
+ }
+ 
+.user-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 12rem;
+}
+
+
+/*/// Media Queries ///*/
 @media screen and (max-width: 1147px) {
   .banner{
     height: 20rem;
