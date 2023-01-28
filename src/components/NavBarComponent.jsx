@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import { useSelector} from "react-redux"
 import userProfile from "../img/user-profile.png" 
 import logo from '../img/logo.png'
-import LoginPage from './LoginPage';
+
 
 const NavbarComponent = () => {
   const favorites = useSelector((state) => state.favorites.content)
-  const logged = false
+  const logged = true
   
 
   return (
@@ -35,7 +35,16 @@ const NavbarComponent = () => {
              </Dropdown>
             </div>
             <div>
-              <img className='user-pic' src={userProfile} alt="" />
+            <Dropdown>
+               <Dropdown.Toggle id="dropdown-basic-logout">
+               <img className='user-pic' src={userProfile} alt="" />
+               </Dropdown.Toggle>
+               <Dropdown.Menu>
+                 <Dropdown.Item>Log Out</Dropdown.Item>
+              
+               </Dropdown.Menu>
+             </Dropdown>
+              
             </div>
             <Link to="/favorites">
              <div className='fav-icon'> 
@@ -50,7 +59,7 @@ const NavbarComponent = () => {
       </Navbar.Text>
       )}{!logged && (
       <Navbar.Text>
-        <LoginPage/>
+        <Link to="/join"><button className="join-btn">Join</button></Link>
       </Navbar.Text>
       )}
       </>

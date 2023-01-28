@@ -4,6 +4,7 @@ import MainPage from './components/MainPage';
 import FavoritesPage from './components/FavoritesPage';
 import ResultsMainPage from './components/ResultsMainPage';
 import DetailsPage from './components/DetailsPage';
+import JoinPage from './components/JoinPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
        <Route path="/favorites" element={ <FavoritesPage/>}/>
        <Route path="/results" element={<ResultsMainPage/>}/>
        <Route path="/detail/:id" element={<DetailsPage/>}/>
+       <Route path='/join' element={<JoinPage/>}/>
       </Routes>
      </BrowserRouter>
   );

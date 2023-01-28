@@ -364,8 +364,12 @@ a:hover{
   width: 12rem;
 }
 
-
-.modal-title{
+.join-main{
+  width: 28vw;
+  border: 1px solid var(--gray-300);
+  height: 30rem;
+}
+.join-title{
  display: flex;
  justify-content: center;
  align-items: center;
@@ -374,38 +378,40 @@ a:hover{
  height: 3rem;
 }
 
-.modal-title h1{
+.join-title h1{
   font-size: 1.5rem;
 }
 
-.form-modal{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 25rem;
+.input-join{
+  width: 18vw;
+  height: 2rem;
+  margin:auto;
+  margin-top: 2rem;
 }
 
-.navbar-nav {
-  display:flex;
-}
-
-#exampleInputName{
+.join-btn-submit{
+  width: 18vw;
+  height: 2rem;
   border: 1px solid var(--gray-300);
-  width: 20rem;
-  height: 3rem;
+  background-color: var(--gray-100);
+  color: var(--gray-500);
+  border-radius: 35px;
+  margin:auto;
+  margin-top: 2rem;
 }
 
-#exampleInputEmail1{
-  border: 1px solid var(--gray-300);
-  width: 20rem;
-  height: 3rem;
+.join-btn-submit:hover{
+  background-color: var(--gray-300);
 }
 
-#exampleInputPassword1{
-  border: 1px solid var(--gray-300);
-  width: 20rem;
-  height: 3rem;
+#dropdown-basic-logout{
+  border-radius: 17px;
+  background-color: transparent;
+  border: none;
+  color: var(--gray-500);
+ padding: 0;
 }
+
 /*/// Media Queries ///*/
 @media screen and (max-width: 1147px) {
   .banner{
