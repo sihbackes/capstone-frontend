@@ -27,7 +27,7 @@ const NavSearchBar = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(getDataAction(query, page, type));
-    navigate ("/results")
+    navigate (`/results/${query}`)
   };
   return(
     <>
@@ -78,7 +78,7 @@ const NavSearchBar = () => {
                <img className='user-pic' src={userProfile} alt="" />
                </Dropdown.Toggle>
                <Dropdown.Menu>
-                 <Dropdown.Item onClick={() => {dispatch(logoutAction(0)); navigate("logout")}}>Log Out</Dropdown.Item>
+                 <Dropdown.Item onClick={() => {dispatch(logoutAction(0)); navigate("/logout")}}>Log Out</Dropdown.Item>
                </Dropdown.Menu>
              </Dropdown>
               

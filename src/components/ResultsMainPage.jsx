@@ -29,7 +29,7 @@ const ResultsMainPage = () => {
   }
 
 const results = data.hits
-console.log(results)
+
   return (
     <> 
     <NavSearchBar/>

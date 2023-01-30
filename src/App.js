@@ -13,7 +13,7 @@ function App() {
      <Routes>
        <Route path="/" element={<MainPage/>}/>
        <Route path="/favorites" element={ <FavoritesPage/>}/>
-       <Route path="/results" element={<ResultsMainPage/>}/>
+       <Route path="/results/:query" element={<ResultsMainPage/>}/>
        <Route path="/detail/:id" element={<DetailsPage/>}/>
        <Route path='/join' element={<JoinPage/>}/>
        <Route path='/logout' element={<Logout/>}/>

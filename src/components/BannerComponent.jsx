@@ -29,7 +29,7 @@ const Banner = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(getDataAction(query, page, type));
-    navigate ("results")
+    navigate (`/results/${query}`)
   };
 
   const results = data.hits
