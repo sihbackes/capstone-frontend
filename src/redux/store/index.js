@@ -5,7 +5,7 @@ import {persistReducer, persistStore} from "redux-persist";
 import dataReducer from "../reducers/dataReducer";
 import favoritesReducer from "../reducers/favoriteReducer";
 import imgByIdReducer from "../reducers/imgByIdReducer";
-import loginReducer from "../reducers/loginReducer";
+
 
 
 const persistConfig = {
@@ -18,7 +18,7 @@ const bigReducer = combineReducers({
   query: dataReducer,
   favorites: favoritesReducer,
   image: imgByIdReducer,
-  logged: loginReducer
+
 })
 const persistedReducer = persistReducer(persistConfig, bigReducer)
 

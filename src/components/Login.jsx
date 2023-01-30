@@ -1,35 +1,23 @@
-import { useState } from "react"
-import {  useDispatch } from "react-redux"
-import { loginAction } from "../redux/actions"
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { AuthContext } from '../contexts/AuthContext';
 
 export const Login = () => {
-  const [name, setName] = useState("")
-  const [password, setPassword] = useState("")
-  let navigate = useNavigate();
-  const dispatch = useDispatch();
+  const {user, signInWithGoogle} = useContext(AuthContext)
+  const navigate = useNavigate();
 
-  
+  const handleLogin = async () => {
+    if(!user){
+      await signInWithGoogle()
+    }
+    navigate('/');
+  };
+
   return(
     <>
-    <form className="d-flex flex-column">
-     <input 
-       className="input-join"
-       type="name"
-       placeholder="Name"
-       value={name}
-       onChange={(e) => setName(e.target.value)}
-     />
-      <input 
-       className="input-join"
-       type="password"
-       placeholder="Password"
-       value={password}
-       onChange={(e) => setPassword(e.target.value)}
-     />
-      <button onClick={() => {dispatch(loginAction(name)); navigate("/")}}className="join-btn-submit">Submit</button>
-    </form> 
+    <div className="d-flex flex-column">
+     <button onClick={handleLogin} className="google-btn">Continue with Google</button>
+    </div> 
     </>
   )
 }

@@ -1,17 +1,16 @@
 import {Container, Navbar, Dropdown} from 'react-bootstrap';
 import {MdFavorite} from 'react-icons/md'
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch} from "react-redux"
-import { logoutAction } from '../redux/actions';
-import userProfile from "../img/user-profile.png" 
+import { Link} from "react-router-dom";
+import { useSelector} from "react-redux"
 import logo from '../img/logo.png'
+import { useContext } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
 
 
 const NavbarComponent = () => {
-  let navigate = useNavigate();
-  const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.content)
-  const logged = useSelector((state) => state.logged.user)
+  const {user} = useContext(AuthContext)
+  console.log(user)
 
   return (
     <Navbar className='navbar'>
@@ -20,29 +19,17 @@ const NavbarComponent = () => {
         <Link to="/"><img className="logo" src={logo} alt="pixabay logo"/></Link>
       </Navbar.Text>
       <>
-      {logged && (
+      {user && (
         <Navbar.Text>
          
            <div className='user-bar'>
             <div>
-             <Dropdown>
-               <Dropdown.Toggle id="dropdown-basic-users">
-                 Explore
-               </Dropdown.Toggle>
-               <Dropdown.Menu>
-                 <Dropdown.Item>Use 1</Dropdown.Item>
-                 <Dropdown.Item>User 2</Dropdown.Item>
-                 <Dropdown.Item>User 3</Dropdown.Item>
-               </Dropdown.Menu>
-             </Dropdown>
-            </div>
-            <div>
             <Dropdown>
                <Dropdown.Toggle id="dropdown-basic-logout">
-               <img className='user-pic' src={userProfile} alt="" />
+               <img className='user-pic' src={user.avatar} alt="" />
                </Dropdown.Toggle>
                <Dropdown.Menu>
-                <Dropdown.Item onClick={() => {dispatch(logoutAction(0)); navigate("logout")}}>Log Out</Dropdown.Item>
+                <Dropdown.Item>Log Out</Dropdown.Item>
                </Dropdown.Menu>
              </Dropdown>
               
@@ -58,7 +45,7 @@ const NavbarComponent = () => {
            </div>
          
       </Navbar.Text>
-      )}{!logged && (
+      )}{!user&& (
       <Navbar.Text>
         <Link to="/join"><button className="join-btn">Join</button></Link>
       </Navbar.Text>

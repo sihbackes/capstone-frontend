@@ -65,13 +65,3 @@ export const removeFromFavoritesAction = (i) => ({
   payload: i,
 });
 
-
-export const loginAction = (user) => ({
-  type: LOGIN,
-  payload: user,
-})
-
-export const logoutAction = (i) => ({
-  type: LOGOUT,
-  payload: i,
-})
