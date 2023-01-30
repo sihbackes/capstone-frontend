@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import {  useDispatch } from "react-redux"
 import { loginAction } from "../redux/actions"
 import { useNavigate } from 'react-router-dom';
 
@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 export const Login = () => {
   const [name, setName] = useState("")
   const [password, setPassword] = useState("")
-  const logged = useSelector((state) => state.logged.user)
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
