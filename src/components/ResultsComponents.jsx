@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToFavoritesAction } from "../redux/actions";
 import "../styles.css"
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-import { Link, useParams } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const ResultsComponent = ({results}) => {
   const dispatch = useDispatch();
