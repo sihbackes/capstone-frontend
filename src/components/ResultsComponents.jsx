@@ -25,7 +25,7 @@ const ResultsComponent = ({results}) => {
           <div className="div-pic masonry-image" key={data.id}>
             <div className="bottom-image">
             <div>{data.tags}</div>
-            <div onClick={() => { dispatch(addToFavoritesAction(data))}}>
+            <div onClick={() => { dispatch((data))}}>
             {handleFavorites(data.id)? <AiFillHeart size={22} className="icon red"/>: <AiOutlineHeart size={22} className="icon"/>}  
             </div>
             </div>

@@ -1,10 +1,17 @@
 import { useState } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { loginAction } from "../redux/actions"
+import { useNavigate } from 'react-router-dom';
+
 
 export const Login = () => {
   const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const logged = useSelector((state) => state.logged.user)
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  
   return(
     <>
     <form className="d-flex flex-column">
@@ -15,13 +22,6 @@ export const Login = () => {
        value={name}
        onChange={(e) => setName(e.target.value)}
      />
-     <input 
-       className="input-join"
-       type="email"
-       placeholder="Email"
-       value={email}
-       onChange={(e) => setEmail(e.target.value)}
-     />
       <input 
        className="input-join"
        type="password"
@@ -29,7 +29,7 @@ export const Login = () => {
        value={password}
        onChange={(e) => setPassword(e.target.value)}
      />
-      <button type="submit" className="join-btn-submit">Submit</button>
+      <button onClick={() => {dispatch(loginAction(name)); navigate("/")}}className="join-btn-submit">Submit</button>
     </form> 
     </>
   )
