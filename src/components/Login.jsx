@@ -1,9 +1,9 @@
-import { useContext } from 'react';
+import { useAuth } from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../contexts/AuthContext';
+
 
 export const Login = () => {
-  const {user, signInWithGoogle} = useContext(AuthContext)
+  const {user, signInWithGoogle} = useAuth()
   const navigate = useNavigate();
 
   const handleLogin = async () => {

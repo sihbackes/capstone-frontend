@@ -3,14 +3,13 @@ import {MdFavorite} from 'react-icons/md'
 import { Link} from "react-router-dom";
 import { useSelector} from "react-redux"
 import logo from '../img/logo.png'
-import { useContext } from 'react';
-import { AuthContext } from '../contexts/AuthContext';
+import { useAuth } from '../hooks/useAuth';
 
 
 const NavbarComponent = () => {
   const favorites = useSelector((state) => state.favorites.content)
-  const {user} = useContext(AuthContext)
-  console.log(user)
+  const {user} = useAuth()
+ 
 
   return (
     <Navbar className='navbar'>
@@ -29,6 +28,7 @@ const NavbarComponent = () => {
                <img className='user-pic' src={user.avatar} alt="" />
                </Dropdown.Toggle>
                <Dropdown.Menu>
+                <Dropdown.Item><Link to="/myProfile">My Profile</Link></Dropdown.Item>
                 <Dropdown.Item>Log Out</Dropdown.Item>
                </Dropdown.Menu>
              </Dropdown>

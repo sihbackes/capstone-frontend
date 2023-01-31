@@ -6,8 +6,7 @@ import { getDataAction } from "../redux/actions";
 import {Form, Dropdown } from 'react-bootstrap';
 import logo from '../img/logo.png'
 import {MdFavorite} from 'react-icons/md'
-import { useContext } from 'react';
-import { AuthContext } from '../contexts/AuthContext';
+import { useAuth } from '../hooks/useAuth';
 import "../styles.css"
 
 
@@ -18,8 +17,8 @@ const NavSearchBar = () => {
   const [query, setQuery] = useState("");
   const [page] = useState(1);
   const [type, setType] = useState("All");
-  const {user} = useContext(AuthContext)
-  console.log(user)
+  const {user} = useAuth()
+
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -68,6 +67,7 @@ const NavSearchBar = () => {
                <img className='user-pic' src={user.avatar} alt="" />
                </Dropdown.Toggle>
                <Dropdown.Menu>
+                 <Dropdown.Item><Link to="/myProfile">My Profile</Link></Dropdown.Item>
                  <Dropdown.Item>Log Out</Dropdown.Item>
                </Dropdown.Menu>
              </Dropdown>

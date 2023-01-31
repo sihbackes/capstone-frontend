@@ -402,7 +402,38 @@ a:hover{
 #dropdown-basic-logout:focus{
   box-shadow: 0 0 0 0.1rem rgba(255, 255, 255, 0.5);
   }
-  
+
+.main-profile{
+  display: flex;
+}
+
+.user-profile-info{
+  width: 30rem;
+  background-color: #f75a68;
+}
+
+.user-profile-fav{
+  width: 60rem;
+  background-color: aqua;
+}
+
+.comment-form{
+  border: 1px solid var(--gray-300);
+  border-radius: 2px;
+}
+
+.comment-avatar{
+  width: 3rem;
+}
+
+.media{
+  align-items: center;
+}
+
+.comment-list{
+  display: flex;
+  padding: 1rem 0 1rem;
+}
 /*/// Media Queries ///*/
 @media screen and (max-width: 1147px) {
   .banner{

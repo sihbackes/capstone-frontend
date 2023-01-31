@@ -6,6 +6,7 @@ import { addToFavoritesAction } from "../redux/actions";
 import NavSearchBar from "./NavSearchBar";
 import Footer from "./FooterComponent";
 import {AiOutlineTag, AiFillHeart, AiOutlineHeart, AiOutlineDownload} from 'react-icons/ai'
+import Comments from "./Comment";
 
 const DetailsPage = () => {
   const params = useParams();
@@ -66,9 +67,8 @@ const DetailsPage = () => {
          </div>
        </div>
       </div>
-     
-    
       </div>
+      <Comments/>
      <Footer/>
     </>
     

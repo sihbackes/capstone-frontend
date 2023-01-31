@@ -34,8 +34,6 @@ export const getImageByIdAction = (id) => {
 
   return async (dispatch)=> {
     const apiKey = "32769201-9cad72badaaf5bf0c85bbf23e"
-    console.log(id)
-    console.log("teste")
     try {
       const response = await fetch(
         `https://pixabay.com/api/?key=${apiKey}&id=${id}`
