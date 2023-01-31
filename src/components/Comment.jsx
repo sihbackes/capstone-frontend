@@ -1,55 +1,121 @@
 import { useAuth } from '../hooks/useAuth';
+import { get, getDatabase, onValue, push, ref } from 'firebase/database';
+import { app  } from '../services/firebase';
+import { useParams, Link } from "react-router-dom";
+import { useState } from 'react';
+import { useEffect } from 'react';
+
+
+
 
 const Comments = () => {
   const {user} = useAuth()
+  console.log(user);
+  const params = useParams();
+  let id = params.id
+
+  const [comment, setComment] = useState('');
+  const [listComments, setListComments] = useState([]);
+
+  console.log(id);
+
+  useEffect(() => {
+    //Ref database
+    const db = getDatabase(app);
+    onValue(ref(db, `imgDetail/${id}`), (snapshot) => {
+      const data = snapshot.val();
+      const getComments = data.comments ?? {};
+      console.log(getComments);
+      //Change return object to normal array;
+      const parsedComments = Object.entries(getComments).map(([key, value]) => {
+        return {
+          commentId: key,
+          comment: value.comment,
+          author: value.author,
+        };
+      });
+
+      setListComments(parsedComments);
+
+      
+    });
+  }, [id]);
+
+
+
+
+  async function handleSendComment(e){
+    e.preventDefault();
+    console.log(comment);
+    const newComment = {
+      author: { username: user.name, avatar: user.avatar, id: user.id},
+      comment: comment,
+      imageId: id
+    }
+
+    const db = getDatabase(app);
+    await push(ref(db, `imgDetail/${id}/comments`), newComment);
+
+    setComment('');
+  }
+
+
+
+
+
+
+  //wait the user info
+  if(!user){
+    return <div>Loading</div>
+  }
+
 
   return(
     <>
-      <div class="container">
-        <h3 class="text-center mb-3">Comments</h3>
-        <div className='comment-list'>
+      <div className="container">
+        <h3 className="text-center mb-3">Comments</h3>
+
+        {listComments.map(e => (
+          <div className='comment-list' key={e.imageId}>
           <div>
+            <Link to={`/profile/${e.author.id}`}>
           <img
-             src="https://via.placeholder.com/64"
-             alt="User Avatar"
-             class="mr-3 rounded-circle comment-avatar"
+             src={e.author.avatar}
+             alt={e.author.name}
+             className="mr-3 rounded-circle comment-avatar"
           />
+          </Link>
           </div>
           <div>
-            comment
+            {e.comment}
           </div>
         </div>
-        <div className='comment-list'>
-          <div>
-          <img
-             src="https://via.placeholder.com/64"
-             alt="User Avatar"
-             class="mr-3 rounded-circle comment-avatar"
-          />
-          </div>
-          <div>
-            comment
-          </div>
-        </div>
-        <div class="media mb-3">
+
+        ))}
+        
+      
+        <div className="media mb-3">
          <img
           src={user.avatar}
           alt="User Avatar"
-          class="mr-3 rounded-circle comment-avatar"/>
-         <div class="media-body">
-           <h5 class="mt-0">{user.name}</h5>
+          className="mr-3 rounded-circle comment-avatar"/>
+         <div className="media-body">
+           <h5 className="mt-0">{user.name}</h5>
          </div>
         </div>
-        <form>
-          <div class="form-group">
-           <label for="comment">Comment</label>
+        <form onSubmit={handleSendComment}>
+          <div className="form-group">
+           <label htmlFor="comment">Comment</label>
             <textarea
-              class="form-control comment-form"
+              className="form-control comment-form"
               id="comment"
               rows="3"
-              placeholder="Enter comment"></textarea>
+              placeholder="Enter comment"
+              onChange={(event) => setComment(event.target.value)}
+              value={comment}
+              ></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" className="btn btn-primary">Submit</button>
         </form>
        </div>
     </>

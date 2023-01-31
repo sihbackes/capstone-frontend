@@ -24,7 +24,7 @@ function App() {
         <Route path='/join' element={<JoinPage/>}/>
         <Route path='/logout' element={<Logout/>}/>
         <Route path='/myProfile' element={<MyProfile/>}/>
-        <Route path='/Profile:userId' element={<Profile/>}/>
+        <Route path='/Profile/:userId' element={<Profile/>}/>
      </Routes>
    </AuthContextProvider>   
   </BrowserRouter>

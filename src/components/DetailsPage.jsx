@@ -27,7 +27,6 @@ const DetailsPage = () => {
      return false
     }
    }
-
   
   if(data.length === 0) {
     return "loading...."
