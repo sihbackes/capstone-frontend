@@ -19,11 +19,11 @@ function App() {
      <Routes>
        <Route path="/" element={<MainPage/>}/>
         <Route path="/favorites" element={ <FavoritesPage/>}/>
-        <Route path="/results/:query" element={<ResultsMainPage/>}/>
+        <Route path="/results/:type/:query" element={<ResultsMainPage/>}/>
         <Route path="/detail/:id" element={<DetailsPage/>}/>
         <Route path='/join' element={<JoinPage/>}/>
         <Route path='/logout' element={<Logout/>}/>
-        <Route path='/myProfile' element={<MyProfile/>}/>
+        <Route path='/myProfile/:userId' element={<MyProfile/>}/>
         <Route path='/Profile/:userId' element={<Profile/>}/>
      </Routes>
    </AuthContextProvider>   

@@ -67,7 +67,7 @@ const NavSearchBar = () => {
                <img className='user-pic' src={user.avatar} alt="" />
                </Dropdown.Toggle>
                <Dropdown.Menu>
-                 <Dropdown.Item><Link to="/myProfile">My Profile</Link></Dropdown.Item>
+                 <Dropdown.Item><Link to={`/myProfile/${user.id}`}>My Profile</Link></Dropdown.Item>
                  <Dropdown.Item>Log Out</Dropdown.Item>
                </Dropdown.Menu>
              </Dropdown>

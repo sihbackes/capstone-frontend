@@ -29,7 +29,7 @@ const Banner = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(getDataAction(query, page, type));
-    navigate (`/results/${query}`) /////filter
+    navigate (`/results/${type}/${query}`) 
   };
 
   const results = data.hits
@@ -70,9 +70,9 @@ const Banner = () => {
       </div>
  
 
- 
+
       <div className='after-banner'>
-      <div className=' cursor d-flex align-items-center all-images' onClick={() => {setType("all"); setBackground("2023/01/10/08/48/water-7709322_960_720.jpg")}}>
+      <div className=' cursor d-flex align-items-center all-images' onClick={() => {setType("all"); setBackground("2020/09/19/10/54/jellyfishes-5584171_960_720.jpg")}}>
         <BsImages className='icon-after mr-1 '/> All Images
        </div>
        <div className='cursor d-flex align-items-center' onClick={() => {setType("photo");setBackground("2022/11/19/14/26/nature-7602212_960_720.jpg")}}>

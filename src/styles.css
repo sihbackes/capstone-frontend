@@ -328,7 +328,6 @@ a:hover{
   text-decoration: none;
 }
 
-
 .join-btn{
   border: 1px solid var(--gray-300);
   background-color: var(--gray-100);
@@ -433,7 +432,30 @@ a:hover{
 .comment-list{
   display: flex;
   padding: 1rem 0 1rem;
+  align-items: center;
 }
+
+.user-profile-avatar{
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.user-profile-name{
+ margin-left:2rem ;
+ font-size: 1.2rem;
+ font-weight: bold;
+}
+
+.about-me{
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.about-me div{
+  align-self: flex-end;
+}
+
 /*/// Media Queries ///*/
 @media screen and (max-width: 1147px) {
   .banner{

@@ -3,8 +3,6 @@ import "../styles.css"
 
 const Logout = () => {
 
-
-
   return(
     <div className="logout-main-page">
         <div>

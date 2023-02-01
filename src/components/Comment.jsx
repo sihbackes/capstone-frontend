@@ -1,5 +1,5 @@
 import { useAuth } from '../hooks/useAuth';
-import { get, getDatabase, onValue, push, ref } from 'firebase/database';
+import { getDatabase, onValue, push, ref } from 'firebase/database';
 import { app  } from '../services/firebase';
 import { useParams, Link } from "react-router-dom";
 import { useState } from 'react';
@@ -10,14 +10,12 @@ import { useEffect } from 'react';
 
 const Comments = () => {
   const {user} = useAuth()
-  console.log(user);
   const params = useParams();
   let id = params.id
 
   const [comment, setComment] = useState('');
   const [listComments, setListComments] = useState([]);
 
-  console.log(id);
 
   useEffect(() => {
     //Ref database
@@ -36,12 +34,9 @@ const Comments = () => {
       });
 
       setListComments(parsedComments);
-
       
     });
   }, [id]);
-
-
 
 
   async function handleSendComment(e){
@@ -55,14 +50,8 @@ const Comments = () => {
 
     const db = getDatabase(app);
     await push(ref(db, `imgDetail/${id}/comments`), newComment);
-
     setComment('');
   }
-
-
-
-
-
 
   //wait the user info
   if(!user){
@@ -74,7 +63,6 @@ const Comments = () => {
     <>
       <div className="container">
         <h3 className="text-center mb-3">Comments</h3>
-
         {listComments.map(e => (
           <div className='comment-list' key={e.imageId}>
           <div>
@@ -86,23 +74,13 @@ const Comments = () => {
           />
           </Link>
           </div>
-          <div>
+          <div className='ml-3'>
             {e.comment}
           </div>
         </div>
 
         ))}
-        
-      
-        <div className="media mb-3">
-         <img
-          src={user.avatar}
-          alt="User Avatar"
-          className="mr-3 rounded-circle comment-avatar"/>
-         <div className="media-body">
-           <h5 className="mt-0">{user.name}</h5>
-         </div>
-        </div>
+  
         <form onSubmit={handleSendComment}>
           <div className="form-group">
            <label htmlFor="comment">Comment</label>
