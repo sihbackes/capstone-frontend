@@ -5,9 +5,9 @@ import FavoritesPage from './components/FavoritesPage';
 import ResultsMainPage from './components/ResultsMainPage';
 import DetailsPage from './components/DetailsPage';
 import JoinPage from './components/JoinPage';
-import Logout from './components/LogoutPage';
 import { AuthContextProvider } from './contexts/AuthContext';
 import Profile from './components/Profile';
+import LogOut from './components/LogOut';
 
 
 function App() {
@@ -21,9 +21,9 @@ function App() {
         <Route path="/results/:type/:query" element={<ResultsMainPage/>}/>
         <Route path="/detail/:id" element={<DetailsPage/>}/>
         <Route path='/join' element={<JoinPage/>}/>
-        <Route path='/logout' element={<Logout/>}/>
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/profile/:userId' element={<Profile/>}/>
+        <Route path='logout' element={<LogOut/>}/>
      </Routes>
    </AuthContextProvider>   
   </BrowserRouter>

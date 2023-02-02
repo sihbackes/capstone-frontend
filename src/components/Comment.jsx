@@ -54,17 +54,18 @@ const Comments = () => {
   }
 
   //wait the user info
-  if(!user){
-    return <div>Loading</div>
-  }
+  // if(!user){
+  //   return <div>Loading</div>
+  // }
 
 
   return(
     <>
+    
       <div className="container">
-        <h3 className="text-center mb-3">Comments</h3>
+        <h3 className="text-center mb-3 ">Comments</h3>
         {listComments.map(e => (
-          <div className='comment-list' key={e.imageId}>
+          <div className='comment-list mb-3' key={e.imageId}>
           <div>
             <Link to={`/profile/${e.author.id}`}>
           <img
@@ -80,21 +81,23 @@ const Comments = () => {
         </div>
 
         ))}
-  
-        <form onSubmit={handleSendComment}>
-          <div className="form-group">
-           <label htmlFor="comment">Comment</label>
-            <textarea
-              className="form-control comment-form"
-              id="comment"
-              rows="3"
-              placeholder="Enter comment"
-              onChange={(event) => setComment(event.target.value)}
-              value={comment}
-              ></textarea>
-          </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
+        {user && (
+            <form onSubmit={handleSendComment}>
+            <div className="form-group">
+             <label htmlFor="comment">Comment</label>
+              <textarea
+                className="form-control comment-form"
+                id="comment"
+                rows="3"
+                placeholder="Enter comment"
+                onChange={(event) => setComment(event.target.value)}
+                value={comment}
+                ></textarea>
+            </div>
+            <button type="submit" className="btn btn-primary">Submit</button>
+          </form>
+        )}
+      
        </div>
     </>
   )

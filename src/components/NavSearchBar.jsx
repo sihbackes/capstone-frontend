@@ -8,7 +8,7 @@ import logo from '../img/logo.png'
 import {MdFavorite} from 'react-icons/md'
 import { useAuth } from '../hooks/useAuth';
 import "../styles.css"
-
+import { getAuth, signOut } from "firebase/auth";
 
 const NavSearchBar = () => {
   let navigate = useNavigate();
@@ -18,7 +18,15 @@ const NavSearchBar = () => {
   const [page] = useState(1);
   const [type, setType] = useState("All");
   const {user} = useAuth()
-
+  
+  const handleSignOut = ()=> {
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      window.location.reload(false);
+    }).catch((error) => {
+      // An error happened.
+    })
+  }
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -68,7 +76,7 @@ const NavSearchBar = () => {
                </Dropdown.Toggle>
                <Dropdown.Menu>
                  <Dropdown.Item><Link to={`/profile`}>My Profile</Link></Dropdown.Item>
-                 <Dropdown.Item>Log Out</Dropdown.Item>
+                 <Dropdown.Item onClick={handleSignOut}>Log Out</Dropdown.Item>
                </Dropdown.Menu>
              </Dropdown>
               

@@ -4,11 +4,21 @@ import { Link} from "react-router-dom";
 import { useSelector} from "react-redux"
 import logo from '../img/logo.png'
 import { useAuth } from '../hooks/useAuth';
-
+import { getAuth, signOut } from "firebase/auth";
 
 const NavbarComponent = () => {
+
   const favorites = useSelector((state) => state.favorites.content)
   const {user} = useAuth()
+
+const handleSignOut = ()=> {
+  const auth = getAuth();
+  signOut(auth).then(() => {
+    window.location.reload(false);
+  }).catch((error) => {
+    // An error happened.
+  })
+}
  
 
   return (
@@ -29,7 +39,7 @@ const NavbarComponent = () => {
                </Dropdown.Toggle>
                <Dropdown.Menu>
                 <Dropdown.Item><Link to={`/profile`}>My Profile</Link></Dropdown.Item>
-                <Dropdown.Item>Log Out</Dropdown.Item>
+                <Dropdown.Item onClick={handleSignOut}>Log Out</Dropdown.Item>
                </Dropdown.Menu>
              </Dropdown>
               
