@@ -7,7 +7,6 @@ import DetailsPage from './components/DetailsPage';
 import JoinPage from './components/JoinPage';
 import Logout from './components/LogoutPage';
 import { AuthContextProvider } from './contexts/AuthContext';
-import MyProfile from './components/MyProfile';
 import Profile from './components/Profile';
 
 
@@ -23,8 +22,8 @@ function App() {
         <Route path="/detail/:id" element={<DetailsPage/>}/>
         <Route path='/join' element={<JoinPage/>}/>
         <Route path='/logout' element={<Logout/>}/>
-        <Route path='/myProfile/:userId' element={<MyProfile/>}/>
-        <Route path='/Profile/:userId' element={<Profile/>}/>
+        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/profile/:userId' element={<Profile/>}/>
      </Routes>
    </AuthContextProvider>   
   </BrowserRouter>

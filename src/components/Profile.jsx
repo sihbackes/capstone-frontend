@@ -2,21 +2,48 @@ import Footer from "./FooterComponent"
 import NavSearchBar from "./NavSearchBar"
 import {BsPencilSquare} from 'react-icons/bs'
 import { useAuth } from '../hooks/useAuth';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { useEffect } from "react";
+import { getDatabase, onValue, set, ref } from "firebase/database";
+import { app  } from '../services/firebase';
+import { useParams} from "react-router-dom";
 
 
 const Profile = () => {
   const {user} = useAuth()
+  const params = useParams();
+  let id = params.id
   const [show, setShow] = useState(false);
   const [about, setAbout] = useState('');
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);///modal
+  const handleShow = () => setShow(true);///modal
+  
+  useEffect(() => {
+  const db = getDatabase(app)
+  onValue(ref(db, `profile/${id}`), (snapshot) =>{
+    const data = snapshot.val();
+    const getAbout = data.about ?? {}
+    setAbout(getAbout.about)
+    console.log(data)
+ 
+  })
+  },[id])
 
-
-  function handleEditAbout(e){
+  async function handleEditAbout(e){
     e.preventDefault();
+    const aboutMe = {
+      about: about
+    }
+    const db = getDatabase(app)
+    await set(ref(db,`profile/${id}/about`), aboutMe)
+    
+  }
+
+   //wait the user info
+   if(!user){
+    return <div>Loading</div>
   }
   return(
     <>

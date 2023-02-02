@@ -28,7 +28,7 @@ const NavbarComponent = () => {
                <img className='user-pic' src={user.avatar} alt="" />
                </Dropdown.Toggle>
                <Dropdown.Menu>
-                <Dropdown.Item><Link to={`/myProfile/${user.id}`}>My Profile</Link></Dropdown.Item>
+                <Dropdown.Item><Link to={`/profile`}>My Profile</Link></Dropdown.Item>
                 <Dropdown.Item>Log Out</Dropdown.Item>
                </Dropdown.Menu>
              </Dropdown>
