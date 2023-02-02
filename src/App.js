@@ -7,7 +7,7 @@ import DetailsPage from './components/DetailsPage';
 import JoinPage from './components/JoinPage';
 import { AuthContextProvider } from './contexts/AuthContext';
 import Profile from './components/Profile';
-import LogOut from './components/LogOut';
+
 
 
 function App() {
@@ -23,7 +23,6 @@ function App() {
         <Route path='/join' element={<JoinPage/>}/>
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/profile/:userId' element={<Profile/>}/>
-        <Route path='logout' element={<LogOut/>}/>
      </Routes>
    </AuthContextProvider>   
   </BrowserRouter>
