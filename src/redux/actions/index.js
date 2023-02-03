@@ -9,7 +9,7 @@ export const LOGOUT = "LOGOUT"
 
 export const getDataAction = (query, page, type)=> {
   return async (dispatch)=> {
-    const apiKey = "32769201-9cad72badaaf5bf0c85bbf23e"
+    const apiKey = process.env.REACT_APP_PIXABAY_API_KEY
    
     try {
       const response = await fetch(
@@ -33,7 +33,7 @@ export const getDataAction = (query, page, type)=> {
 export const getImageByIdAction = (id) => {
 
   return async (dispatch)=> {
-    const apiKey = "32769201-9cad72badaaf5bf0c85bbf23e"
+    const apiKey = process.env.REACT_APP_PIXABAY_API_KEY
     try {
       const response = await fetch(
         `https://pixabay.com/api/?key=${apiKey}&id=${id}`

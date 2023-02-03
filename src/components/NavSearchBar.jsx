@@ -35,7 +35,7 @@ const NavSearchBar = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(getDataAction(query, page, type));
-    navigate (`/results/${query}`)
+    navigate (`/results/${type}/${query}`)
   };
   return(
     <>
