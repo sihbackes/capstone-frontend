@@ -6,7 +6,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useEffect } from "react";
-import { getDatabase, onValue, set, ref } from "firebase/database";
+import { getDatabase, onValue, set, ref} from "firebase/database";
 import { app  } from '../services/firebase';
 import { useParams} from "react-router-dom";
 
@@ -15,8 +15,13 @@ const Profile = () => {
   const {user} = useAuth()
   const params = useParams();
   let id = params.id
+
+  console.log(id);
+
   const [show, setShow] = useState(false);
   const [about, setAbout] = useState('');
+  
+  const [info, setInfo] = useState('');
   const handleClose = () => setShow(false);///modal
   const handleShow = () => setShow(true);///modal
   
@@ -24,10 +29,13 @@ const Profile = () => {
   const db = getDatabase(app)
   onValue(ref(db, `profile/${id}`), (snapshot) =>{
     const data = snapshot.val();
-    const getAbout = data.about ?? {}
+
+    console.log(data);
+    const getAbout = data.about ?? {};
+    const getInfo = data.info ?? {};
+    console.log(getAbout.about);
     setAbout(getAbout.about)
-    console.log(data)
- 
+    setInfo(getInfo)
   })
   },[id])
 
@@ -36,15 +44,17 @@ const Profile = () => {
     const aboutMe = {
       about: about
     }
+    console.log(aboutMe);
     const db = getDatabase(app)
     await set(ref(db,`profile/${id}/about`), aboutMe)
-    
   }
 
    //wait the user info
-   if(!user){
-    return <div>Loading</div>
-  }
+  //  if(!user){
+  //   return <div>Loading</div>
+  //}
+
+
   return(
     <>
       <NavSearchBar/>
@@ -53,14 +63,18 @@ const Profile = () => {
         <div className="col-md-6">
           <div className="d-flex align-items-center">
            <div>
-            <img className="user-profile-avatar" src={user.avatar} alt=""/>
+            <img className="user-profile-avatar" src={info.avatar} alt=""/>
            </div>
-           <div className="user-profile-name">{user.name}</div>
+           <div className="user-profile-name">{info.name}</div>
           </div>
           <div className="about-me">
-          <div onClick={handleShow}><BsPencilSquare/></div>
+             
+             {user?.id === id && <div onClick={handleShow}><BsPencilSquare/></div>}
+         
           <p>
-         {about}
+          
+            {about}
+         
           </p>
          
           </div>

@@ -1,6 +1,9 @@
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import {auth} from "../services/firebase"
 import { createContext, useEffect, useState } from "react"
+import { getDatabase, set, ref} from "firebase/database";
+import { app  } from '../services/firebase';
+
 export const AuthContext = createContext({});
 
 
@@ -41,6 +44,13 @@ export function AuthContextProvider(props){
           name: displayName,
           avatar: photoURL
         })
+        const userInfo = {
+          id:uid,
+          name: displayName,
+          avatar: photoURL
+        }
+        const db = getDatabase(app)
+        await set(ref(db,`profile/${userInfo.id}/info`), userInfo)
       }
   }
 

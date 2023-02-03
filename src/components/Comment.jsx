@@ -23,7 +23,7 @@ const Comments = () => {
     onValue(ref(db, `imgDetail/${id}`), (snapshot) => {
       const data = snapshot.val();
       const getComments = data.comments ?? {};
-      console.log(getComments);
+
       //Change return object to normal array;
       const parsedComments = Object.entries(getComments).map(([key, value]) => {
         return {
@@ -41,7 +41,6 @@ const Comments = () => {
 
   async function handleSendComment(e){
     e.preventDefault();
-    console.log(comment);
     const newComment = {
       author: { username: user.name, avatar: user.avatar, id: user.id},
       comment: comment,
@@ -64,18 +63,21 @@ const Comments = () => {
     
       <div className="container">
         <h3 className="text-center mb-3 ">Comments</h3>
-        {listComments.map(e => (
-          <div className='comment-list mb-3' key={e.imageId}>
+        {listComments.map((e, i) => (
+          <div className='comment-list mb-3' key={i}>
           <div>
             <Link to={`/profile/${e.author.id}`}>
           <img
              src={e.author.avatar}
-             alt={e.author.name}
+             alt={e.author.username}
              className="mr-3 rounded-circle comment-avatar"
           />
           </Link>
           </div>
-          <div className='ml-3'>
+          <div className='ml-3 d-flex flex-column'>
+            <Link to={`/profile/${e.author.id}`}>
+             {e.author.username}
+            </Link>
             {e.comment}
           </div>
         </div>
