@@ -16,12 +16,12 @@ const Profile = () => {
   const params = useParams();
   let id = params.id
 
-  console.log(id);
 
   const [show, setShow] = useState(false);
   const [about, setAbout] = useState('');
   
   const [info, setInfo] = useState('');
+  const [favorites, setFavorites] = useState([]);
   const handleClose = () => setShow(false);///modal
   const handleShow = () => setShow(true);///modal
   
@@ -30,12 +30,25 @@ const Profile = () => {
   onValue(ref(db, `profile/${id}`), (snapshot) =>{
     const data = snapshot.val();
 
-    console.log(data);
+   
     const getAbout = data.about ?? {};
     const getInfo = data.info ?? {};
-    console.log(getAbout.about);
+    const getFavorites = data.favorites ?? {};
+
+    const parsedFavorites = Object.entries(getFavorites).map(([key, value]) => {
+      return {
+        favoriteId: key,
+        id: value.id,
+        url: value.url,
+        tags: value.tags
+      };
+    });
+    console.log(parsedFavorites);
+
+
     setAbout(getAbout.about)
     setInfo(getInfo)
+    setFavorites(parsedFavorites);
   })
   },[id])
 
@@ -49,10 +62,6 @@ const Profile = () => {
     await set(ref(db,`profile/${id}/about`), aboutMe)
   }
 
-   //wait the user info
-  //  if(!user){
-  //   return <div>Loading</div>
-  //}
 
 
   return(
@@ -82,27 +91,18 @@ const Profile = () => {
         <div className="col-md-6">
           <h3>Favourites Board</h3>
           <div className="row">
-            <div className="col-md-4">
+            {favorites.map(favorite => (
+              <div className="col-md-4">
               <img
-                src="https://via.placeholder.com/150"
+                src={favorite.url}
                 alt=""
                 className="img-thumbnail"
               />
             </div>
-            <div className="col-md-4">
-              <img
-                src="https://via.placeholder.com/150"
-                alt=""
-                className="img-thumbnail"
-              />
-            </div>
-            <div className="col-md-4">
-              <img 
-                src="https://via.placeholder.com/150" 
-                alt=""
-                className="img-thumbnail"
-              />
-            </div>
+
+            ))}
+            
+           
           </div>
         </div>
        </div>

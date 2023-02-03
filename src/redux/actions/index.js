@@ -1,6 +1,4 @@
 export const GET_DATA = "GET_DATA";
-export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES"
-export const REMOVE_FROM_FAVORITES = "REMOVE_FROM_FAVORITES";
 export const GET_IMG_BY_ID = "GET_IMG_BY_ID"
 export const LOGIN = "LOGIN"
 export const LOGOUT = "LOGOUT"
@@ -50,16 +48,3 @@ export const getImageByIdAction = (id) => {
     }
   }
 }
-
-export const addToFavoritesAction = (pic) => {
-  return {
-    type: ADD_TO_FAVORITES,
-    payload: pic,
-  };
-};
-
-export const removeFromFavoritesAction = (i) => ({
-  type: REMOVE_FROM_FAVORITES,
-  payload: i,
-});
-

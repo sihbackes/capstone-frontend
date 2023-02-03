@@ -6,8 +6,6 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 
-
-
 const Comments = () => {
   const {user} = useAuth()
   const params = useParams();

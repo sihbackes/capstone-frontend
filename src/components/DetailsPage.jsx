@@ -1,13 +1,14 @@
-import { useEffect} from "react";
+import { useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux"
 import { getImageByIdAction } from "../redux/actions";
-import { addToFavoritesAction } from "../redux/actions";
 import NavSearchBar from "./NavSearchBar";
 import Footer from "./FooterComponent";
 import {AiOutlineTag, AiFillHeart, AiOutlineHeart, AiOutlineDownload} from 'react-icons/ai'
 import Comments from "./Comment";
 import { useAuth } from '../hooks/useAuth';
+import { getDatabase, push, ref, onValue, remove } from "firebase/database";
+import { app  } from '../services/firebase';
 
 
 const DetailsPage = () => {
@@ -15,7 +16,7 @@ const DetailsPage = () => {
   let id = params.id
   const dispatch = useDispatch();
   const data = useSelector((state) => state.image.dataImage)
-  const favorites = useSelector((state) => state.favorites.content)
+  const [favorites, setFavorites] = useState([]);
   const {user} = useAuth()
 
 
@@ -23,25 +24,55 @@ const DetailsPage = () => {
     dispatch(getImageByIdAction(id))
   }, [dispatch, id]);
 
-  const handleFavorites = (id) => {
-    const find = favorites.find(element => element.id === id)
-    if(find){
-     return true
-    } else{
-     return false
-    }
-   }
-
-
-
-    if(data.length === 0) {
-    return "loading...."
-    }
-
-    if(parseInt(id) !== data.hits[0].id ){
-    return "loading...."
-  }
+  useEffect(() => {
+    if(user){
+      const db = getDatabase(app)
+      onValue(ref(db, `profile/${user.id}/favorites`), (snapshot) =>{
+        const data = snapshot.val();
   
+        const getFavorites = data ?? {};
+    
+        const parsedFavorites = Object.entries(getFavorites).map(([key, value]) => {
+          return {
+            favoriteId: key,
+            id: value.id,
+            url: value.url,
+            tags: value.tags
+          };
+        });
+
+        setFavorites(parsedFavorites);
+      })
+    }
+    
+    },[user])
+
+
+  const handleFavorites = (id) => {
+   const find = favorites.find(element => element.id === id)
+   if(find){
+    return find
+   } else{
+    return false
+   }
+  }
+
+  async function handleAddFavorites(data){
+    console.log(data);
+    const newFavorite = {
+      id: data.id,
+      url:  data.webformatURL,
+      tags: data.tags
+    }
+
+    const db = getDatabase(app);
+    await push(ref(db, `profile/${user.id}/favorites`), newFavorite);
+  }
+
+  async function handleRemoveFavorites(data){
+    const db = getDatabase(app);
+    await remove(ref(db, `profile/${user.id}/favorites/${data}`));
+  }
 
 
   const image = data.hits[0]
@@ -65,8 +96,10 @@ const DetailsPage = () => {
            </a>
          </div>
          {user && (
-         <div className="detail-div" onClick={() => { dispatch(addToFavoritesAction(image))}}>
-         {handleFavorites(image.id)? <AiFillHeart  size={22} className="icon red mr-2"/>: <AiOutlineHeart size={22} className="icon mr-2"/>} 
+         <div className="detail-div d-flex">
+         <div onClick={() => handleFavorites(image.id) ? handleRemoveFavorites(handleFavorites(image.id).favoriteId) : handleAddFavorites(image)}>
+               {handleFavorites(image.id)? <AiFillHeart size={22} className="icon red"/>: <AiOutlineHeart size={22} className="icon"/>}  
+               </div>
          Add to Favourites
       </div>
          )}
