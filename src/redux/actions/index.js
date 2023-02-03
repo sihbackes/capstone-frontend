@@ -1,8 +1,5 @@
 export const GET_DATA = "GET_DATA";
 export const GET_IMG_BY_ID = "GET_IMG_BY_ID"
-export const LOGIN = "LOGIN"
-export const LOGOUT = "LOGOUT"
-
 
 
 export const getDataAction = (query, page, type)=> {
@@ -29,7 +26,6 @@ export const getDataAction = (query, page, type)=> {
 
 
 export const getImageByIdAction = (id) => {
-
   return async (dispatch)=> {
     const apiKey = process.env.REACT_APP_PIXABAY_API_KEY
     try {

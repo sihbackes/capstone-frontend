@@ -67,7 +67,7 @@ const Comments = () => {
             <Link to={`/profile/${e.author.id}`}>
           <img
              src={e.author.avatar}
-             alt={e.author.username}
+             alt=""
              className="mr-3 rounded-circle comment-avatar"
           />
           </Link>

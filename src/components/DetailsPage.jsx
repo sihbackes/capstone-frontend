@@ -16,15 +16,13 @@ const DetailsPage = () => {
   let id = params.id
   const dispatch = useDispatch();
   const data = useSelector((state) => state.image.dataImage)
+  console.log(data)
   const [favorites, setFavorites] = useState([]);
   const {user} = useAuth()
 
 
   useEffect(() => {
     dispatch(getImageByIdAction(id))
-  }, [dispatch, id]);
-
-  useEffect(() => {
     if(user){
       const db = getDatabase(app)
       onValue(ref(db, `profile/${user.id}/favorites`), (snapshot) =>{
@@ -45,7 +43,7 @@ const DetailsPage = () => {
       })
     }
     
-    },[user])
+    },[user, dispatch, id])
 
 
   const handleFavorites = (id) => {
@@ -75,9 +73,10 @@ const DetailsPage = () => {
   }
 
 
+  if(data.length === 0 ){
+    return <div>Loading...</div>
+  }
   const image = data.hits[0]
-  
-
   return(
     <>
      <NavSearchBar/>

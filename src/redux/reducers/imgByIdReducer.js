@@ -7,6 +7,7 @@ const initialState = {
 const imgByIdReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_IMG_BY_ID:
+      console.log('oi')
       return {
         ...state,
         dataImage: action.payload,

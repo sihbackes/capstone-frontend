@@ -10,13 +10,11 @@ import imgByIdReducer from "../reducers/imgByIdReducer";
 const persistConfig = {
   key: "root",
   storage: localStorage,
-  
 };
 
 const bigReducer = combineReducers({
   query: dataReducer,
   image: imgByIdReducer,
-
 })
 const persistedReducer = persistReducer(persistConfig, bigReducer)
 
