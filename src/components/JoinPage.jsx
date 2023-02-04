@@ -1,17 +1,25 @@
+import Footer from './FooterComponent';
 import { Login } from './Login';
-
+import NavSearchBar from "./NavSearchBar";
 const JoinPage = () => {
   
 return(
-  <div className='d-flex justify-content-center mt-5'>
-    <div className='join-main'>
-       <div className='join-title'>
-         <h1>Log in</h1>
+  <>
+  <NavSearchBar/>
+    <div className="d-flex align-items-center login-div">
+     <div className='login-text'>
+       <h3 className="text-center join-title mb-4">Join</h3>
+       <div className="d-flex justify-content-center">
+         <Login/>
        </div>
-        <Login/>
+     </div>
     </div>
-  </div>
+    <Footer/>
+  </>
+
 )
+
+
 }
 
 export default JoinPage

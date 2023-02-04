@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { getDatabase, onValue, set, ref} from "firebase/database";
 import { app  } from '../services/firebase';
 import { useParams} from "react-router-dom";
-
+import { Link} from "react-router-dom";
 
 const Profile = () => {
   const {user} = useAuth()
@@ -69,7 +69,7 @@ const Profile = () => {
       <NavSearchBar/>
       <div className="container mt-5">
        <div className="row">
-        <div className="col-md-6">
+        <div className="col-md-4">
           <div className="d-flex align-items-center">
            <div>
             <img className="user-profile-avatar" src={info.avatar} alt=""/>
@@ -77,31 +77,27 @@ const Profile = () => {
            <div className="user-profile-name">{info.name}</div>
           </div>
           <div className="about-me">
-             
              {user?.id === id && <div onClick={handleShow}><BsPencilSquare/></div>}
-         
           <p>
-          
-            {about}
-         
+            {about}       
           </p>
-         
           </div>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-8">
           <h3>Favourites Board</h3>
           <div className="row">
             {favorites.map(favorite => (
+          
               <div className="col-md-4">
-              <img
-                src={favorite.url}
-                alt=""
-                className="img-thumbnail"
-              />
+                <Link to={`/detail/${favorite.id}`}> 
+                  <img
+                   src={favorite.url}
+                   alt=""
+                   className="img-thumbnail"
+                  />
+                </Link>
             </div>
-
-            ))}
-            
+            ))}     
            
           </div>
         </div>

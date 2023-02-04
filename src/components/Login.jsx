@@ -1,6 +1,6 @@
 import { useAuth } from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
-
+import { Button } from "react-bootstrap";
 
 export const Login = () => {
   const {user, signInWithGoogle} = useAuth()
@@ -15,9 +15,7 @@ export const Login = () => {
 
   return(
     <>
-    <div className="d-flex flex-column">
-     <button onClick={handleLogin} className="google-btn">Continue with Google</button>
-    </div> 
+    <Button className='btn-join-google' onClick={handleLogin}>Continue with Google</Button>
     </>
   )
 }
