@@ -9,6 +9,7 @@ import Comments from "./Comment";
 import { useAuth } from '../hooks/useAuth';
 import { getDatabase, push, ref, onValue, remove } from "firebase/database";
 import { app  } from '../services/firebase';
+import Suggestions from "./Suggestions";
 
 
 const DetailsPage = () => {
@@ -16,7 +17,6 @@ const DetailsPage = () => {
   let id = params.id
   const dispatch = useDispatch();
   const data = useSelector((state) => state.image.dataImage)
-  console.log(data)
   const [favorites, setFavorites] = useState([]);
   const {user} = useAuth()
 
@@ -107,8 +107,11 @@ const DetailsPage = () => {
          <div>
           <a href={image.pageURL} target="_blank" rel="noreferrer"><button className="download-btn">Download <AiOutlineDownload size={23}/></button></a>
          </div>
+         <Suggestions/>
        </div>
+       
       </div>
+    
       </div>
   
         <Comments/>

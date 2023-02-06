@@ -50,11 +50,6 @@ const Comments = () => {
     setComment('');
   }
 
-  //wait the user info
-  // if(!user){
-  //   return <div>Loading</div>
-  // }
-
 
   return(
     <>

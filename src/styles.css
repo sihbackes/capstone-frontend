@@ -462,6 +462,26 @@ a:hover{
   object-fit: cover;
 } 
 
+.suggested-div{
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+}
+.suggested-profiles{
+  display: flex;
+  font-size: .9rem;
+  align-items: center;
+  margin: 5px 0 5px;
+}
+
+.suggested-profiles p {
+  margin: 0;
+  color: var(--gray-500);
+}
+
+.suggested-profiles p:hover{
+  color: var(--gray-400);
+}
 
 /*/// Media Queries ///*/
 @media screen and (max-width: 1147px) {
@@ -515,7 +535,9 @@ a:hover{
  .image-detail{
   width: 35rem;
  }
- 
+ .suggested-div {
+  display: none;
+ }
 }
 @media screen and (max-width:600px) {
   .main-detail-div{

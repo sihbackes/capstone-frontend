@@ -19,7 +19,6 @@ const Profile = () => {
 
   const [show, setShow] = useState(false);
   const [about, setAbout] = useState('');
-  
   const [info, setInfo] = useState('');
   const [favorites, setFavorites] = useState([]);
   const handleClose = () => setShow(false);///modal
@@ -63,7 +62,7 @@ const Profile = () => {
   }
 
 
-
+console.log(favorites)
   return(
     <>
       <NavSearchBar/>
