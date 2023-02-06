@@ -26,7 +26,6 @@ import { Link} from "react-router-dom";
       if(user){
         const profiles = parsedProfiles.filter(element => element.info.id !== user.id)
         setInfo(profiles)
-        console.log(info)
       } else if(!user){
         setInfo(parsedProfiles)
       }
