@@ -56,7 +56,7 @@ const DetailsPage = () => {
   }
 
   async function handleAddFavorites(data){
-    console.log(data);
+
     const newFavorite = {
       id: data.id,
       url:  data.webformatURL,
