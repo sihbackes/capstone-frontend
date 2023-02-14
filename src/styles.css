@@ -573,4 +573,7 @@ a:hover{
    .search-form{
     width: 13rem;
    }
+   .bottom-image{
+    transform: scale(1);
+  }
 }
