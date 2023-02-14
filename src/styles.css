@@ -575,5 +575,6 @@ a:hover{
    }
    .bottom-image{
     transform: scale(1);
+    font-size: .8rem;
   }
 }

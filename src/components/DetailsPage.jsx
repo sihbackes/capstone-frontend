@@ -69,7 +69,7 @@ const DetailsPage = () => {
   }
   },[data])
 
-console.log(tags)
+
 
   const handleFavorites = (id) => {
    const find = favorites.find(element => element.id === id)
@@ -105,7 +105,7 @@ console.log(tags)
     return <div>Loading...</div>
   }
   const image = data.hits[0]
-  console.log(image.webformatURL)
+  console.log(tags.categories)
   return(
     <>
      <NavSearchBar/>
@@ -115,7 +115,7 @@ console.log(tags)
          <img className="image-detail" src={image.webformatURL} alt="" />
          {tags && (
           <div className="detail-div"> <AiOutlineTag className="mr-2" size={24}/>
-          {tags.categories.toString()}
+          {tags.categories.join(", ")}
           </div>
          )}
          
