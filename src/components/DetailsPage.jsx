@@ -101,6 +101,9 @@ console.log(tags)
   if(data.length === 0 ){
     return <div>Loading...</div>
   }
+  if(!tags ){
+    return <div>Loading...</div>
+  }
   const image = data.hits[0]
   console.log(image.webformatURL)
   return(
