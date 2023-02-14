@@ -30,7 +30,7 @@ import { Link} from "react-router-dom";
         setInfo(parsedProfiles)
       }
     })
-  }, [info, user])
+  }, [user])
 
   return(
     <div className="suggested-div">

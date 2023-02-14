@@ -18,6 +18,7 @@ const DetailsPage = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.image.dataImage)
   const [favorites, setFavorites] = useState([]);
+  const [tags, setTags] = useState();
   const {user} = useAuth()
 
 
@@ -44,7 +45,31 @@ const DetailsPage = () => {
     }
     
     },[user, dispatch, id])
+    
+  useEffect(() => {
+     ////////////////tags from api////////////
+  const getTags = ()=> {
+    const options = {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'X-RapidAPI-Key': '47b90c0b15msh1f32277e69c01c9p123c88jsn0c5b7d2ef6ab',
+        'X-RapidAPI-Host': 'scene-classification.p.rapidapi.com'
+      },
+      body: `{"url":"${data.hits[0].webformatURL}"}`
+    };
+    
+    fetch('https://scene-classification.p.rapidapi.com/scenery-classify', options)
+      .then(response => response.json())
+      .then(response => setTags(response))
+      .catch(err => console.error(err));
+  }
+  if(data.length !== 0 ){
+    getTags()
+  }
+  },[data])
 
+console.log(tags)
 
   const handleFavorites = (id) => {
    const find = favorites.find(element => element.id === id)
@@ -77,6 +102,7 @@ const DetailsPage = () => {
     return <div>Loading...</div>
   }
   const image = data.hits[0]
+  console.log(image.webformatURL)
   return(
     <>
      <NavSearchBar/>
@@ -84,6 +110,12 @@ const DetailsPage = () => {
       <div className="main-detail-div">
        <div>
          <img className="image-detail" src={image.webformatURL} alt="" />
+         {tags && (
+          <div className="detail-div"> <AiOutlineTag className="mr-2" size={24}/>
+          {tags.categories.toString()}
+          </div>
+         )}
+         
        </div>
        <div className="image-detail-info">
          <div>
@@ -104,6 +136,7 @@ const DetailsPage = () => {
          )}
 
          <div className="detail-div"> <AiOutlineTag className="mr-2" size={24}/>{image.tags}</div>
+         
          <div>
           <a href={image.pageURL} target="_blank" rel="noreferrer"><button className="download-btn">Download <AiOutlineDownload size={23}/></button></a>
          </div>
@@ -113,7 +146,7 @@ const DetailsPage = () => {
       </div>
     
       </div>
-  
+      
         <Comments/>
       
      <Footer/>
