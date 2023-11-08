@@ -143,7 +143,7 @@ const DetailsPage = () => {
          <div>
           <a href={image.pageURL} target="_blank" rel="noreferrer"><button className="download-btn">Download <AiOutlineDownload size={23}/></button></a>
          </div>
-         <Suggestions/>
+    
        </div>
        
       </div>
